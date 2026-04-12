@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="85% of Routt County families with infants and toddlers cannot find care. See the data and take action.">
+  <meta property="og:title" content="Routt County: The Child Care Crisis">
+  <meta property="og:description" content="Child care is infrastructure. It's time for Routt County to act.">
+  <title>Routt County Child Care Crisis | Routt Thrive by Five</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --red:    #e41d1b;
+      --coral:  #e75d24;
+      --orange: #f78f20;
+      --purple: #b2489b;
+      --teal:   #148ec1;
+
+      --dark:   #1c1c1e;
+      --mid:    #3a3a3c;
+      --muted:  #6e6e73;
+      --light:  #f5f5f7;
+      --white:  #ffffff;
+      --border: #e0e0e0;
+
+      --font: 'Montserrat', Arial, sans-serif;
+      --pad: clamp(3rem, 8vw, 6rem);
+      --max: 1160px;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--dark);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; }
+    a { color: inherit; }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(28,28,30,0.97);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+    .nav-wordmark {
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+      display: none;
+    }
+    @media (min-width: 480px) { .nav-wordmark { display: block; } }
+    .nav-wordmark span { color: var(--teal); }
+
+    .nav-dots {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: none;
+      padding: 0;
+      position: relative;
+    }
+    .nav-dot:hover { background: rgba(255,255,255,0.5); transform: scale(1.2); }
+    .nav-dot.active { transform: scale(1.5); }
+    .nav-dot[data-section="gap"].active    { background: var(--red); }
+    .nav-dot[data-section="cost"].active   { background: var(--coral); }
+    .nav-dot[data-section="workforce"].active { background: var(--orange); }
+    .nav-dot[data-section="ripple"].active { background: var(--purple); }
+    .nav-dot[data-section="forward"].active { background: var(--teal); }
+
+    .nav-dot-label {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.55rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.5);
+      white-space: nowrap;
+    }
+    .nav-dot.active .nav-dot-label { color: white; }
+    @media (min-width: 700px) { .nav-dot-label { display: block; } }
+    @media (min-width: 700px) { .nav-dots { gap: 1.5rem; } }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      min-height: 100svh;
+      background: linear-gradient(145deg, #1c1c1e 0%, #2a1630 50%, #1a0e2e 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 5rem 1.5rem 4rem;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(228,29,27,0.12) 0%, transparent 70%);
+      top: -200px;
+      right: -200px;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(20,142,193,0.1) 0%, transparent 70%);
+      bottom: -150px;
+      left: -150px;
+      pointer-events: none;
+    }
+    .hero-logo { margin-bottom: 1.5rem; position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      max-width: 800px;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .hero-quote {
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      line-height: 1.75;
+      color: rgba(255,255,255,0.8);
+      max-width: 720px;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-quote .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(6px);
+      animation: wordFade 0.4s ease forwards;
+    }
+    @keyframes wordFade { to { opacity: 1; transform: none; } }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--red);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.2s;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.02em;
+    }
+    .hero-cta:hover { background: #c0140f; transform: translateY(-2px); }
+    .hero-cta svg { transition: transform 0.3s; }
+    .hero-cta:hover svg { transform: translateY(3px); }
+
+    /* ============================================================
+       SECTION PATTERNS
+    ============================================================ */
+    .section {
+      padding: var(--pad) 0;
+      position: relative;
+    }
+    .section--alt { background: var(--light); }
+    .section-accent {
+      height: 6px;
+      width: 100%;
+      margin-bottom: 0;
+    }
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .section h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+    }
+
+    /* Key stat */
+    .key-stat {
+      margin: 2rem 0;
+      padding: 2rem;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .section--alt .key-stat { background: var(--white); }
+    .key-stat-number {
+      font-size: clamp(3.5rem, 10vw, 6rem);
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .key-stat-desc {
+      font-size: 1.05rem;
+      color: var(--mid);
+      max-width: 360px;
+      line-height: 1.5;
+    }
+
+    /* Stat cards grid */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 560px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .stat-grid { grid-template-columns: repeat(3, 1fr); } }
+    .stat-grid--2 { grid-template-columns: 1fr; }
+    @media (min-width: 560px) { .stat-grid--2 { grid-template-columns: repeat(2, 1fr); } }
+    .stat-grid--4 { grid-template-columns: 1fr; }
+    @media (min-width: 560px) { .stat-grid--4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .stat-grid--4 { grid-template-columns: repeat(4, 1fr); } }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      border-top: 4px solid currentColor;
+    }
+    .section--alt .stat-card { background: var(--white); }
+    .stat-card-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.35rem;
+    }
+    .stat-card-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .stat-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* Chart containers */
+    .chart-wrap {
+      position: relative;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      margin: 1.5rem 0;
+    }
+    .section--alt .chart-wrap { background: var(--white); }
+    .chart-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .chart-sub-headline {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+    .chart-container {
+      position: relative;
+      height: 280px;
+    }
+    @media (min-width: 700px) { .chart-container { height: 340px; } }
+    .chart-container--tall { height: 320px; }
+    @media (min-width: 700px) { .chart-container--tall { height: 380px; } }
+    .chart-container--short { height: 220px; }
+    @media (min-width: 700px) { .chart-container--short { height: 260px; } }
+
+    /* Two-panel layout */
+    .two-panel {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    @media (min-width: 800px) { .two-panel { grid-template-columns: 1fr 1fr; } }
+
+    /* ============================================================
+       SECTION 2 — AFFORDABILITY METER
+    ============================================================ */
+    .affordability-meters {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .meter-row { display: flex; flex-direction: column; gap: 0.4rem; }
+    .meter-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.85rem;
+    }
+    .meter-label { font-weight: 600; }
+    .meter-pct { font-weight: 800; font-size: 1.1rem; }
+    .meter-track {
+      height: 28px;
+      background: #e8e8ed;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+    .meter-fill {
+      height: 100%;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--white);
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .meter-fill--bench { background: var(--teal); width: 0; }
+    .meter-fill--actual { background: var(--red); width: 0; }
+
+    /* ============================================================
+       SECTION 4 — PEER FUNDING CALLOUT
+    ============================================================ */
+    .peer-zero {
+      position: absolute;
+      right: 1.25rem;
+      bottom: 50px;
+      background: var(--red);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       SECTION 5 — PILLARS
+    ============================================================ */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    @media (min-width: 700px) { .pillar-grid { grid-template-columns: repeat(3, 1fr); } }
+    .pillar-card {
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+    .pillar-card--space  { background: linear-gradient(135deg, #148ec1, #0f6e99); }
+    .pillar-card--access { background: linear-gradient(135deg, #b2489b, #8a3378); }
+    .pillar-card--people { background: linear-gradient(135deg, #f78f20, #d47518); }
+    .pillar-number {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+    .pillar-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+    .pillar-subtitle {
+      font-size: 0.8rem;
+      opacity: 0.85;
+      margin-bottom: 1rem;
+    }
+    .pillar-range {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .pillar-range small {
+      font-size: 0.75rem;
+      font-weight: 400;
+      opacity: 0.85;
+      display: block;
+    }
+
+    /* Targets — goal-card style */
+    .targets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .target-badge {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      background: var(--white);
+      border: 2px solid var(--teal);
+      border-left: 5px solid var(--teal);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.3;
+    }
+    .target-badge svg { flex-shrink: 0; margin-top: 1px; }
+
+    /* Peer quote blockquote */
+    .peer-quote {
+      border-left: 4px solid var(--teal);
+      padding: 1.25rem 1.5rem;
+      background: rgba(20,142,193,0.07);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--mid);
+      margin: 2rem 0;
+    }
+    .peer-quote strong { color: var(--dark); }
+
+    /* ============================================================
+       CTA SECTION
+    ============================================================ */
+    .cta-section {
+      background: linear-gradient(145deg, #1c1c1e 0%, #2a1630 100%);
+      color: var(--white);
+      padding: var(--pad) 0;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+    @media (min-width: 620px) {
+      .cta-buttons { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 1.75rem;
+      border-radius: 50px;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+      letter-spacing: 0.02em;
+      min-width: 200px;
+      justify-content: center;
+    }
+    .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .cta-btn--primary { background: var(--red); color: var(--white); }
+    .cta-btn--secondary { background: rgba(255,255,255,0.12); color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); }
+    .cta-btn--secondary:hover { background: rgba(255,255,255,0.2); }
+
+    /* ============================================================
+       FOOTNOTES & FOOTER
+    ============================================================ */
+    .footnotes-wrap {
+      background: var(--light);
+      border-top: 1px solid var(--border);
+    }
+    details {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    details summary {
+      padding: 1.25rem 0;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      user-select: none;
+      list-style: none;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: ' ▼'; }
+    details[open] summary::after { content: ' ▲'; }
+    .footnote-body {
+      padding-bottom: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.75;
+      columns: 1;
+    }
+    @media (min-width: 700px) { .footnote-body { columns: 2; column-gap: 2rem; } }
+    .footnote-body p { break-inside: avoid; margin-bottom: 0.5rem; }
+    .footnote-body sup { color: var(--mid); font-weight: 700; margin-right: 3px; }
+
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 1.5rem 1.25rem;
+      font-size: 0.75rem;
+    }
+    footer strong { color: rgba(255,255,255,0.85); }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+    .fade-up:nth-child(5) { transition-delay: 0.4s; }
+
+    /* ============================================================
+       UTILITY
+    ============================================================ */
+    .source-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+    .narrative {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.7;
+      max-width: 780px;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .highlight { color: var(--dark); font-weight: 700; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav class="nav" aria-label="Main navigation">
+  <a href="#" class="nav-brand" aria-label="Routt Thrive by Five — home">
+    <!-- Inline SVG logo mark -->
+    <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+      <rect x="1" y="1" width="15" height="15" rx="3" fill="#f78f20"/>
+      <rect x="20" y="1" width="15" height="15" rx="3" fill="#e41d1b"/>
+      <rect x="1" y="20" width="15" height="15" rx="3" fill="#b2489b"/>
+      <rect x="20" y="20" width="15" height="15" rx="3" fill="#148ec1"/>
+      <circle cx="18" cy="18" r="6" fill="white"/>
+      <path d="M15 19 L18 13.5 L21 19" fill="#1c1c1e"/>
+      <rect x="16.5" y="19" width="3" height="4" rx="1" fill="#1c1c1e"/>
+    </svg>
+    <div class="nav-wordmark"><span>ROUTT</span><br>THRIVE BY FIVE</div>
+  </a>
+  <div class="nav-dots" role="list" aria-label="Section navigation">
+    <button class="nav-dot" data-section="gap" role="listitem" aria-label="The Gap">
+      <span class="nav-dot-label">The Gap</span>
+    </button>
+    <button class="nav-dot" data-section="cost" role="listitem" aria-label="The Cost">
+      <span class="nav-dot-label">The Cost</span>
+    </button>
+    <button class="nav-dot" data-section="workforce" role="listitem" aria-label="The Workforce">
+      <span class="nav-dot-label">Workforce</span>
+    </button>
+    <button class="nav-dot" data-section="ripple" role="listitem" aria-label="The Ripple Effects">
+      <span class="nav-dot-label">Ripple Effects</span>
+    </button>
+    <button class="nav-dot" data-section="forward" role="listitem" aria-label="The Path Forward">
+      <span class="nav-dot-label">Path Forward</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<header class="hero" id="hero">
+  <div class="hero-logo" aria-hidden="true">
+    <svg width="72" height="72" viewBox="0 0 36 36">
+      <rect x="1" y="1" width="15" height="15" rx="3" fill="#f78f20"/>
+      <rect x="20" y="1" width="15" height="15" rx="3" fill="#e41d1b"/>
+      <rect x="1" y="20" width="15" height="15" rx="3" fill="#b2489b"/>
+      <rect x="20" y="20" width="15" height="15" rx="3" fill="#148ec1"/>
+      <circle cx="18" cy="18" r="6" fill="rgba(255,255,255,0.15)"/>
+      <path d="M15 19 L18 13.5 L21 19" fill="white"/>
+      <rect x="16.5" y="19" width="3" height="4" rx="1" fill="white"/>
+    </svg>
+  </div>
+  <p class="hero-eyebrow">Routt Thrive by Five</p>
+  <h1>Child care is <em>infrastructure.</em><br>Not charity.</h1>
+  <p class="hero-quote" id="hero-quote">In Routt County, the child care system is failing — not because people don't care, but because the economics are broken. This is a workforce problem. An economic problem. And it requires a community investment to fix.</p>
+  <a href="#gap" class="hero-cta">
+    See the data
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </a>
+</header>
+
+<!-- ============================================================
+     SECTION 1: THE GAP
+============================================================ -->
+<div class="section-accent" style="background: var(--red);"></div>
+<section class="section" id="gap" data-nav="gap">
+  <div class="container">
+    <p class="section-label" style="color: var(--red);">01 / The Gap</p>
+    <h2>Demand far exceeds supply</h2>
+    <p class="section-intro">Routt County doesn't have a child care preference problem. It has a child care supply crisis — worst for the youngest children.</p>
+
+    <div class="key-stat fade-up">
+      <div class="key-stat-number" style="color: var(--red);">
+        <span data-counter data-target="85" data-suffix="%">0%</span>
+      </div>
+      <div class="key-stat-desc">of families with <strong>infants and toddlers</strong> cannot find care in Routt County<sup>1,2</sup></div>
+    </div>
+
+    <div class="stat-grid fade-up">
+      <div class="stat-card" style="color: var(--red);">
+        <span class="stat-card-icon">👶</span>
+        <div class="stat-card-value">7 : 1</div>
+        <div class="stat-card-label">Children competing for every available infant slot<sup>2</sup></div>
+      </div>
+      <div class="stat-card" style="color: var(--red);">
+        <span class="stat-card-icon">⏳</span>
+        <div class="stat-card-value">1+ year</div>
+        <div class="stat-card-label">Average wait to get off the infant waitlist<sup>2</sup></div>
+      </div>
+      <div class="stat-card" style="color: var(--red);">
+        <span class="stat-card-icon">☀️</span>
+        <div class="stat-card-value">~60%</div>
+        <div class="stat-card-label">Of preschool programs close during summer months<sup>1</sup></div>
+      </div>
+    </div>
+
+    <div class="chart-wrap fade-up">
+      <div class="chart-title">Routt County's Childcare Crisis: 83% of Infants Lack Licensed Care</div>
+      <!-- SVG gap-first design: ghost bars show need, solid teal shows what exists -->
+      <svg viewBox="0 0 580 265" width="100%" aria-label="Childcare gap chart — infants and toddlers face severe shortage while preschool approaches parity" font-family="'Montserrat',Arial,sans-serif">
+
+        <!-- SECTION 1 BACKGROUND: THE CRISIS -->
+        <rect x="0" y="0" width="580" height="135" rx="8" fill="rgba(228,29,27,0.03)"/>
+        <text x="10" y="18" font-size="10" font-weight="800" fill="#e41d1b" letter-spacing="1.5">THE CRISIS — UNDER 36 MONTHS</text>
+
+        <!-- INFANTS ROW -->
+        <text x="150" y="52" text-anchor="end" font-size="12" font-weight="600" fill="#3a3a3c" dominant-baseline="middle">Infants (0–18 mo)</text>
+        <!-- Ghost bar: 300 needed → 196px wide -->
+        <rect x="157" y="38" width="196" height="28" rx="6" fill="rgba(228,29,27,0.07)" stroke="#e41d1b" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <!-- Licensed bar: 51 → 33px wide -->
+        <rect x="157" y="38" width="33" height="28" rx="6" fill="#148ec1"/>
+        <!-- "17%" label inside blue bar -->
+        <text x="173" y="52" text-anchor="middle" font-size="9" font-weight="800" fill="white" dominant-baseline="middle">17%</text>
+        <!-- Gap callout to the right of ghost bar -->
+        <text x="362" y="46" text-anchor="start" font-size="12" font-weight="800" fill="#e41d1b">249 infants</text>
+        <text x="362" y="60" text-anchor="start" font-size="10" fill="#e41d1b">without care</text>
+
+        <!-- TODDLERS ROW -->
+        <text x="150" y="93" text-anchor="end" font-size="12" font-weight="600" fill="#3a3a3c" dominant-baseline="middle">Toddlers (18–36 mo)</text>
+        <!-- Ghost bar: 318 needed → 207px wide -->
+        <rect x="157" y="79" width="207" height="28" rx="6" fill="rgba(228,29,27,0.07)" stroke="#e41d1b" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <!-- Licensed bar: 98 → 64px wide -->
+        <rect x="157" y="79" width="64" height="28" rx="6" fill="#148ec1"/>
+        <!-- "31%" label inside blue bar -->
+        <text x="189" y="93" text-anchor="middle" font-size="9" font-weight="800" fill="white" dominant-baseline="middle">31%</text>
+        <!-- Gap callout -->
+        <text x="372" y="87" text-anchor="start" font-size="12" font-weight="800" fill="#e41d1b">220 toddlers</text>
+        <text x="372" y="101" text-anchor="start" font-size="10" fill="#e41d1b">without care</text>
+
+        <!-- Crisis stat line -->
+        <text x="157" y="123" font-size="10" font-weight="600" fill="#e41d1b" font-style="italic">→ 7 children compete for every available infant slot</text>
+
+        <!-- DIVIDER -->
+        <line x1="0" y1="140" x2="580" y2="140" stroke="#d1d1d6" stroke-width="1" stroke-dasharray="4,4"/>
+
+        <!-- SECTION 2 BACKGROUND: UPK SUCCESS -->
+        <rect x="0" y="144" width="580" height="121" rx="8" fill="rgba(20,142,193,0.03)"/>
+        <text x="10" y="161" font-size="10" font-weight="800" fill="#148ec1" letter-spacing="1.5">PRESCHOOL (3–5) — UNIVERSAL PRESCHOOL SUCCESS</text>
+
+        <!-- PRESCHOOL ROW -->
+        <text x="150" y="196" text-anchor="end" font-size="12" font-weight="600" fill="#3a3a3c" dominant-baseline="middle">Preschool (36–60 mo)</text>
+        <!-- Full bar: 498 → 325px — solid teal -->
+        <rect x="157" y="182" width="325" height="28" rx="6" fill="#148ec1" opacity="0.85"/>
+        <text x="319" y="196" text-anchor="middle" font-size="11" font-weight="700" fill="white" dominant-baseline="middle">✓ Near parity — 498 licensed slots</text>
+
+        <!-- UPK note -->
+        <text x="157" y="225" font-size="10" fill="#6e6e73">Colorado's Universal Preschool (UPK) program funds 3–5 year olds statewide.</text>
+        <text x="157" y="238" font-size="10" fill="#6e6e73">No equivalent funding mechanism exists for infants or toddlers.</text>
+
+        <!-- LEGEND -->
+        <rect x="157" y="253" width="12" height="10" rx="2" fill="#148ec1"/>
+        <text x="173" y="258" font-size="9" fill="#3a3a3c" dominant-baseline="middle">Licensed slots available</text>
+        <rect x="300" y="253" width="12" height="10" rx="2" fill="rgba(228,29,27,0.07)" stroke="#e41d1b" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="316" y="258" font-size="9" fill="#3a3a3c" dominant-baseline="middle">Estimated slots needed</text>
+      </svg>
+      <p class="source-note">Sources: <sup>1</sup> Strategic Investment Plan (2026) &nbsp; <sup>2</sup> Brodsky Report (2025)</p>
+    </div>
+
+    <p class="narrative">
+      The shortage is most severe for infants. There are just <span class="highlight">51 licensed infant slots</span> in Routt County, against an estimated need of 300 — a gap of 249. Toddlers face a similar crisis: 98 licensed slots against 318 needed. <span class="highlight">Universal Preschool (UPK) expansion</span> has brought preschool closer to parity, but no comparable support exists for children under three. For working parents of babies and toddlers, the math simply doesn't work.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2: THE COST
+============================================================ -->
+<div class="section-accent" style="background: var(--coral);"></div>
+<section class="section section--alt" id="cost" data-nav="cost">
+  <div class="container">
+    <p class="section-label" style="color: var(--coral);">02 / The Cost</p>
+    <h2>Families pay more than they can afford. Providers earn less than they need.</h2>
+    <p class="section-intro">Child care in Routt County costs families four times the federal definition of "affordable" — and it still isn't enough to sustain the people providing it.</p>
+
+    <div class="key-stat fade-up">
+      <div class="key-stat-number" style="color: var(--coral);">4x</div>
+      <div class="key-stat-desc">the federally recommended spending level — <strong>25–30% of family income</strong> goes to child care, versus the 7% benchmark<sup>1,2</sup></div>
+    </div>
+
+    <!-- AFFORDABILITY METERS — full width -->
+    <div class="chart-wrap fade-up">
+      <div class="chart-title">Share of household income spent on child care</div>
+      <div class="affordability-meters" id="meters">
+        <div class="meter-row">
+          <div class="meter-header">
+            <span class="meter-label">Federal benchmark <em style="font-style:normal;color:var(--muted);font-size:0.8em;">(what's "affordable")</em></span>
+            <span class="meter-pct" style="color:var(--teal);">7%</span>
+          </div>
+          <div class="meter-track">
+            <div class="meter-fill meter-fill--bench" id="meter-bench" style="width:0">7%</div>
+          </div>
+        </div>
+        <div class="meter-row">
+          <div class="meter-header">
+            <span class="meter-label">Community goal</span>
+            <span class="meter-pct" style="color:var(--orange);">7–10%</span>
+          </div>
+          <div class="meter-track">
+            <div class="meter-fill" id="meter-goal" style="width:0;background:var(--orange);">7–10%</div>
+          </div>
+        </div>
+        <div class="meter-row">
+          <div class="meter-header">
+            <span class="meter-label">Routt County families <em style="font-style:normal;color:var(--muted);font-size:0.8em;">(actual)</em></span>
+            <span class="meter-pct" style="color:var(--red);">25–30%</span>
+          </div>
+          <div class="meter-track">
+            <div class="meter-fill meter-fill--actual" id="meter-actual" style="width:0">25–30%</div>
+          </div>
+        </div>
+      </div>
+      <p class="source-note" style="margin-top:1rem;">Median household income: $104,803 &nbsp;|&nbsp; Source: ACS 5-Year Estimates (2023)</p>
+    </div>
+
+    <!-- THE UNFINISHED BRIDGE — full width -->
+    <div class="chart-wrap fade-up">
+      <div class="chart-title">The Unfinished Bridge</div>
+      <!--
+        True suspension bridge silhouette above teal section (arch + cables + towers).
+        Rebar sticking right out of junction tower = construction stopped here.
+        Hollow gap = no deck, no arch above it.
+        Gap callout above open sky. Path Forward pill bottom-right, no overlap.
+        No footer labels — figures tell that story.
+
+        Layout (all y coords):
+          y=0–42:   Bridge arch + cable tops
+          y=42–95:  Arch lower / towers
+          y=95–128: Road deck (teal + gap + ghost)
+          y=128–142: Dollar scale
+          y=142–245: Figures + Path Forward pill
+      -->
+      <svg viewBox="0 0 620 250" width="100%" aria-label="Unfinished bridge: suspension arch and cables over funded teal section, rebar at junction, hollow dashed gap section with educator figures, path forward pill at right" font-family="'Montserrat',Arial,sans-serif">
+
+        <!-- ═══════════════════════════════════════
+             BRIDGE TOWERS (teal)
+        ═══════════════════════════════════════ -->
+
+        <!-- Left tower shaft + cap -->
+        <rect x="28" y="40" width="14" height="88" rx="2" fill="#148ec1"/>
+        <rect x="22" y="34" width="26" height="10" rx="3" fill="#148ec1"/>
+
+        <!-- Junction tower shaft + cap (right end of funded section) -->
+        <rect x="322" y="40" width="14" height="88" rx="2" fill="#148ec1"/>
+        <rect x="316" y="34" width="26" height="10" rx="3" fill="#148ec1"/>
+
+        <!-- ═══════════════════════════════════════
+             MAIN ARCH (solid teal, funded section)
+        ═══════════════════════════════════════ -->
+        <path d="M 35,40 Q 182,6 329,40" fill="none" stroke="#148ec1" stroke-width="5" stroke-linecap="round"/>
+
+        <!-- GHOST ARCH (dashed teal, showing where completion would go)
+             Mirrors main arch from junction tower to ghost right tower.
+             x=329→582, peak at ~y=8 -->
+        <path d="M 329,40 Q 455,8 582,40" fill="none" stroke="#148ec1" stroke-width="3.5" stroke-dasharray="10,6" stroke-linecap="round" opacity="0.38"/>
+
+        <!-- ═══════════════════════════════════════
+             GHOST RIGHT TOWER (dashed teal) at x=576
+        ═══════════════════════════════════════ -->
+        <rect x="575" y="40" width="12" height="88" rx="2" fill="none" stroke="#148ec1" stroke-width="2" stroke-dasharray="5,3" opacity="0.4"/>
+        <rect x="569" y="34" width="24" height="10" rx="3" fill="none" stroke="#148ec1" stroke-width="2" stroke-dasharray="4,3" opacity="0.4"/>
+
+        <!-- ═══════════════════════════════════════
+             SOLID SUSPENSION CABLES (funded section)
+        ═══════════════════════════════════════ -->
+        <line x1="94"  y1="30" x2="94"  y2="95" stroke="#148ec1" stroke-width="1.5" opacity="0.65"/>
+        <line x1="138" y1="23" x2="138" y2="95" stroke="#148ec1" stroke-width="1.5" opacity="0.65"/>
+        <line x1="182" y1="22" x2="182" y2="95" stroke="#148ec1" stroke-width="1.5" opacity="0.65"/>
+        <line x1="226" y1="23" x2="226" y2="95" stroke="#148ec1" stroke-width="1.5" opacity="0.65"/>
+        <line x1="270" y1="30" x2="270" y2="95" stroke="#148ec1" stroke-width="1.5" opacity="0.65"/>
+
+        <!-- GHOST CABLES over gap + completion zone (dashed teal)
+             t values from ghost arch M329 Q455 582:
+               t=0.20 → x=373, y=31   t=0.40 → x=415, y=20
+               t=0.60 → x=456, y=20   t=0.80 → x=498, y=31 -->
+        <line x1="373" y1="31" x2="373" y2="95" stroke="#148ec1" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.35"/>
+        <line x1="415" y1="20" x2="415" y2="95" stroke="#148ec1" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.35"/>
+        <line x1="456" y1="20" x2="456" y2="95" stroke="#148ec1" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.35"/>
+        <line x1="498" y1="31" x2="498" y2="95" stroke="#148ec1" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.35"/>
+        <line x1="540" y1="38" x2="540" y2="95" stroke="#148ec1" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.35"/>
+
+        <!-- ═══════════════════════════════════════
+             GAP CALLOUT — centered in gap x=336–494, clear of tower
+             Three shorter lines so nothing clips the right tower
+        ═══════════════════════════════════════ -->
+        <text x="445" y="44" text-anchor="middle" font-size="12" font-weight="800" fill="#e41d1b">Educators bridge</text>
+        <text x="445" y="59" text-anchor="middle" font-size="12" font-weight="800" fill="#e41d1b">the $13k gap</text>
+        <text x="445" y="73" text-anchor="middle" font-size="10" fill="#e41d1b">with their own wages</text>
+        <!-- Arrow down to gap section top -->
+        <line x1="415" y1="78" x2="415" y2="90" stroke="#e41d1b" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <polygon points="411,90 415,97 419,90" fill="#e41d1b"/>
+
+        <!-- ═══════════════════════════════════════
+             ROAD DECK
+        ═══════════════════════════════════════ -->
+
+        <!-- Full-width track background -->
+        <rect x="42" y="95" width="540" height="33" rx="5" fill="#f0f0f0" stroke="#d1d1d6" stroke-width="1"/>
+
+        <!-- TEAL funded section (x=42→322, w=280) — labels inside -->
+        <rect x="42" y="95" width="280" height="33" rx="5 0 0 5" fill="#148ec1"/>
+        <text x="182" y="109" text-anchor="middle" font-size="12.5" font-weight="800" fill="white">Families are maxed out</text>
+        <text x="182" y="122" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.88)">$15–22k / year · 30% of income</text>
+
+        <!-- REBAR — sticking right out of junction tower (x=336), construction stopped here -->
+        <line x1="336" y1="98"  x2="352" y2="88"  stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="336" y1="107" x2="352" y2="97"  stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="336" y1="116" x2="352" y2="106" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="336" y1="125" x2="352" y2="117" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- GAP SECTION — hollow skeleton, x=336→494 -->
+        <rect x="336" y="95" width="158" height="33" fill="rgba(228,29,27,0.05)" stroke="#e41d1b" stroke-width="2" stroke-dasharray="8,4"/>
+        <clipPath id="clipHBridge"><rect x="336" y="95" width="158" height="33"/></clipPath>
+        <g clip-path="url(#clipHBridge)">
+          <line x1="316" y1="128" x2="494" y2="95"  stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
+          <line x1="342" y1="128" x2="494" y2="102" stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
+          <line x1="368" y1="128" x2="494" y2="113" stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
+          <line x1="394" y1="128" x2="494" y2="128" stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
+          <line x1="336" y1="115" x2="490" y2="95"  stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
+          <line x1="336" y1="104" x2="478" y2="95"  stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
+          <line x1="420" y1="128" x2="494" y2="95"  stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
+          <line x1="458" y1="128" x2="494" y2="103" stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
+        </g>
+
+        <!-- GHOST ROAD — teal dashed outline showing where road WOULD be (x=494→582) -->
+        <rect x="494" y="95" width="88" height="33" rx="0 5 5 0" fill="rgba(20,142,193,0.07)" stroke="#148ec1" stroke-width="2" stroke-dasharray="7,4" opacity="0.55"/>
+        <!-- Ghost road center-line dashes -->
+        <line x1="504" y1="111" x2="518" y2="111" stroke="rgba(20,142,193,0.3)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="527" y1="111" x2="541" y2="111" stroke="rgba(20,142,193,0.3)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="550" y1="111" x2="564" y2="111" stroke="rgba(20,142,193,0.3)" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- Junction crack line (white, at start of gap x=336) -->
+        <line x1="336" y1="95" x2="336" y2="128" stroke="white" stroke-width="2.5" stroke-dasharray="4,3" opacity="0.8"/>
+
+        <!-- $30k marker line only — label lives in scale row below -->
+        <line x1="494" y1="95" x2="494" y2="128" stroke="#148ec1" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+
+        <!-- ═══════════════════════════════════════
+             DOLLAR SCALE (below deck)
+        ═══════════════════════════════════════ -->
+        <text x="42"  y="140" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$0</text>
+        <text x="196" y="140" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$10k</text>
+        <text x="350" y="140" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$20k</text>
+        <text x="494" y="140" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$30k</text>
+        <text x="582" y="140" text-anchor="middle" font-size="9.5" font-weight="700" fill="#148ec1">$35k</text>
+
+        <!-- ═══════════════════════════════════════
+             PATH FORWARD PILL
+             x=502–617, y=148–190 — right of educators, below scale
+        ═══════════════════════════════════════ -->
+        <rect x="502" y="148" width="115" height="42" rx="10" fill="rgba(20,142,193,0.12)" stroke="#148ec1" stroke-width="1.5"/>
+        <text x="560" y="165" text-anchor="middle" font-size="10" font-weight="700" fill="#148ec1">→ Closing this gap</text>
+        <text x="560" y="181" text-anchor="middle" font-size="10" font-weight="700" fill="#148ec1">is the Path Forward</text>
+
+        <!-- ═══════════════════════════════════════
+             FIGURES — all y coords +18 vs. old (deck now y=95–128 vs. old y=68–110)
+             Arms reach to y=128 (track underside)
+        ═══════════════════════════════════════ -->
+
+        <!-- DAD (cx=143) -->
+        <circle cx="143" cy="165" r="12" fill="#148ec1"/>
+        <path d="M 135,179 L 135,212 L 151,212 L 151,179 Q 147,182 143,182 Q 139,182 135,179 Z" fill="#148ec1"/>
+        <path d="M 135,186 Q 127,157 122,128" stroke="#148ec1" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 151,186 Q 156,200 162,205 Q 167,205 174,202" stroke="#148ec1" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <line x1="139" y1="212" x2="133" y2="236" stroke="#148ec1" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="147" y1="212" x2="153" y2="236" stroke="#148ec1" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- BABY -->
+        <ellipse cx="169" cy="190" rx="6" ry="9" fill="#148ec1"/>
+        <circle cx="169" cy="179" r="6" fill="#148ec1"/>
+
+        <!-- MOM (cx=197) -->
+        <circle cx="197" cy="151" r="7" fill="#148ec1"/>
+        <circle cx="197" cy="165" r="12" fill="#148ec1"/>
+        <path d="M 189,179 L 177,215 L 217,215 L 205,179 Q 201,182 197,182 Q 193,182 189,179 Z" fill="#148ec1"/>
+        <path d="M 192,179 L 197,188 L 202,179" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M 189,184 Q 182,163 178,128" stroke="#148ec1" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 205,184 Q 212,163 216,128" stroke="#148ec1" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <line x1="185" y1="215" x2="180" y2="238" stroke="#148ec1" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="209" y1="215" x2="214" y2="238" stroke="#148ec1" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- MALE EDUCATOR (cx=393) -->
+        <circle cx="393" cy="165" r="12" fill="#e41d1b"/>
+        <path d="M 385,179 L 385,212 L 401,212 L 401,179 Q 397,182 393,182 Q 389,182 385,179 Z" fill="#e41d1b"/>
+        <path d="M 385,186 Q 377,164 372,128" stroke="#e41d1b" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 401,186 Q 409,164 414,128" stroke="#e41d1b" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <line x1="389" y1="212" x2="383" y2="236" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="397" y1="212" x2="403" y2="236" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- FEMALE EDUCATOR (cx=423) -->
+        <circle cx="423" cy="151" r="7" fill="#e41d1b"/>
+        <circle cx="423" cy="165" r="12" fill="#e41d1b"/>
+        <circle cx="417" cy="167" r="4.5" fill="rgba(160,0,0,0.22)" stroke="white" stroke-width="1.4"/>
+        <circle cx="429" cy="167" r="4.5" fill="rgba(160,0,0,0.22)" stroke="white" stroke-width="1.4"/>
+        <line x1="421.5" y1="167" x2="424.5" y2="167" stroke="white" stroke-width="1.4"/>
+        <line x1="412.5" y1="167" x2="408"   y2="167" stroke="white" stroke-width="1.2"/>
+        <line x1="433.5" y1="167" x2="438"   y2="167" stroke="white" stroke-width="1.2"/>
+        <path d="M 415,179 L 403,215 L 443,215 L 431,179 Q 427,182 423,182 Q 419,182 415,179 Z" fill="#e41d1b"/>
+        <path d="M 418,179 L 423,188 L 428,179" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M 415,184 Q 408,163 404,128" stroke="#e41d1b" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 431,184 Q 438,163 442,128" stroke="#e41d1b" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <line x1="411" y1="215" x2="406" y2="238" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="435" y1="215" x2="440" y2="238" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
+
+      </svg>
+      <p class="source-note">Sources: <sup>1</sup> Strategic Investment Plan (2026) &nbsp; <sup>2</sup> Brodsky Report (2025)</p>
+    </div>
+
+    <div class="stat-grid stat-grid--2 fade-up">
+      <div class="stat-card" style="color: var(--coral);">
+        <div class="stat-card-value">$13–20K</div>
+        <div class="stat-card-label">Per-child annual deficit providers must absorb — that's the gap between what families pay and what quality care actually costs<sup>1</sup></div>
+      </div>
+      <div class="stat-card" style="color: var(--coral);">
+        <div class="stat-card-value">73%</div>
+        <div class="stat-card-label">Of provider operating costs are wages — leaving almost nothing for facilities, supplies, or program improvement<sup>2</sup></div>
+      </div>
+    </div>
+
+    <p class="narrative">
+      This isn't a management problem. It's a <span class="highlight">market failure</span>. The economics of child care are broken by design: the true cost of high-quality infant care ($25,000–$35,000 per child per year) far exceeds what any family can reasonably pay, and government support doesn't close the gap. Providers absorb the difference — until they can't.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3: THE WORKFORCE
+============================================================ -->
+<div class="section-accent" style="background: var(--orange);"></div>
+<section class="section" id="workforce" data-nav="workforce">
+  <div class="container">
+    <p class="section-label" style="color: var(--orange);">03 / The Workforce</p>
+    <h2>Educators can't afford to live here on what they earn</h2>
+    <p class="section-intro">The people who care for Routt County's youngest children are paid wages that don't cover the basic cost of living — in one of Colorado's most expensive communities.</p>
+
+    <div class="key-stat fade-up">
+      <div class="key-stat-number" style="color: var(--orange);">$3/hr</div>
+      <div class="key-stat-desc">less than what it takes to simply live in Routt County — the gap between the <strong>median educator wage ($26/hr)</strong> and the MIT Living Wage <strong>($29/hr)</strong><sup>3,4</sup></div>
+    </div>
+
+    <div class="chart-wrap fade-up">
+      <div class="chart-title">Education is their passion — a second job is their reality</div>
+      <!-- "Two Jobs" Pictogram: 10 person icons, 4 orange = work a second job (42%) -->
+      <!--
+        Teacher icon anatomy (centered at each cx, top of bun ≈ y=28):
+          • Bun   circle: cx, cy=37, r=7
+          • Head  circle: cx, cy=52, r=14  (slight overlap with bun)
+          • Glasses: two r=4.5 circles at cy=54, left = cx-7, right = cx+7;
+                     bridge line between them; temple lines outward
+          • Body/shoulders: trapezoidal path below neck (y=66 → y=95)
+          • V-collar: small chevron in white at neckline
+          • Briefcase badge (2nd-job icons only): below body y=99–113
+        Slot width 58px, cx positions: 29,87,145,203,261,319,377,435,493,551
+      -->
+      <svg viewBox="0 0 580 178" width="100%" aria-label="Pictogram: 4 of 10 Routt County educators hold a second job" font-family="'Montserrat',Arial,sans-serif">
+
+        <!-- Highlight box for "2nd job" group -->
+        <rect x="353" y="22" width="222" height="92" rx="8" fill="rgba(247,143,32,0.07)" stroke="#f78f20" stroke-width="1.2" stroke-dasharray="5,3"/>
+        <text x="464" y="15" text-anchor="middle" font-size="9" font-weight="800" fill="#f78f20" letter-spacing="1">42% HOLD A SECOND JOB</text>
+
+        <!-- ══════ TEAL TEACHER ICONS (single job) — cx 29,87,145,203,261,319 ══════ -->
+
+        <!-- Icon 1: cx=29 -->
+        <circle cx="29" cy="37" r="7"  fill="#148ec1"/>
+        <circle cx="29" cy="52" r="14" fill="#148ec1"/>
+        <circle cx="22" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <circle cx="36" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <line x1="26.5" y1="54" x2="31.5" y2="54" stroke="white" stroke-width="1.5"/>
+        <line x1="17.5" y1="53" x2="15"   y2="51" stroke="white" stroke-width="1.3"/>
+        <line x1="40.5" y1="53" x2="43"   y2="51" stroke="white" stroke-width="1.3"/>
+        <path d="M 15,66 Q 11,80 11,95 L 47,95 Q 47,80 43,66 Q 37,70 29,70 Q 21,70 15,66 Z" fill="#148ec1"/>
+        <path d="M 21,66 L 29,77 L 37,66" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <!-- Icon 2: cx=87 -->
+        <circle cx="87" cy="37" r="7"  fill="#148ec1"/>
+        <circle cx="87" cy="52" r="14" fill="#148ec1"/>
+        <circle cx="80" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <circle cx="94" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <line x1="84.5" y1="54" x2="89.5" y2="54" stroke="white" stroke-width="1.5"/>
+        <line x1="75.5" y1="53" x2="73"   y2="51" stroke="white" stroke-width="1.3"/>
+        <line x1="98.5" y1="53" x2="101"  y2="51" stroke="white" stroke-width="1.3"/>
+        <path d="M 73,66 Q 69,80 69,95 L 105,95 Q 105,80 101,66 Q 95,70 87,70 Q 79,70 73,66 Z" fill="#148ec1"/>
+        <path d="M 79,66 L 87,77 L 95,66" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <!-- Icon 3: cx=145 -->
+        <circle cx="145" cy="37" r="7"  fill="#148ec1"/>
+        <circle cx="145" cy="52" r="14" fill="#148ec1"/>
+        <circle cx="138" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <circle cx="152" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <line x1="142.5" y1="54" x2="147.5" y2="54" stroke="white" stroke-width="1.5"/>
+        <line x1="133.5" y1="53" x2="131"   y2="51" stroke="white" stroke-width="1.3"/>
+        <line x1="156.5" y1="53" x2="159"   y2="51" stroke="white" stroke-width="1.3"/>
+        <path d="M 131,66 Q 127,80 127,95 L 163,95 Q 163,80 159,66 Q 153,70 145,70 Q 137,70 131,66 Z" fill="#148ec1"/>
+        <path d="M 137,66 L 145,77 L 153,66" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <!-- Icon 4: cx=203 -->
+        <circle cx="203" cy="37" r="7"  fill="#148ec1"/>
+        <circle cx="203" cy="52" r="14" fill="#148ec1"/>
+        <circle cx="196" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <circle cx="210" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <line x1="200.5" y1="54" x2="205.5" y2="54" stroke="white" stroke-width="1.5"/>
+        <line x1="191.5" y1="53" x2="189"   y2="51" stroke="white" stroke-width="1.3"/>
+        <line x1="214.5" y1="53" x2="217"   y2="51" stroke="white" stroke-width="1.3"/>
+        <path d="M 189,66 Q 185,80 185,95 L 221,95 Q 221,80 217,66 Q 211,70 203,70 Q 195,70 189,66 Z" fill="#148ec1"/>
+        <path d="M 195,66 L 203,77 L 211,66" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <!-- Icon 5: cx=261 -->
+        <circle cx="261" cy="37" r="7"  fill="#148ec1"/>
+        <circle cx="261" cy="52" r="14" fill="#148ec1"/>
+        <circle cx="254" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <circle cx="268" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <line x1="258.5" y1="54" x2="263.5" y2="54" stroke="white" stroke-width="1.5"/>
+        <line x1="249.5" y1="53" x2="247"   y2="51" stroke="white" stroke-width="1.3"/>
+        <line x1="272.5" y1="53" x2="275"   y2="51" stroke="white" stroke-width="1.3"/>
+        <path d="M 247,66 Q 243,80 243,95 L 279,95 Q 279,80 275,66 Q 269,70 261,70 Q 253,70 247,66 Z" fill="#148ec1"/>
+        <path d="M 253,66 L 261,77 L 269,66" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <!-- Icon 6: cx=319 -->
+        <circle cx="319" cy="37" r="7"  fill="#148ec1"/>
+        <circle cx="319" cy="52" r="14" fill="#148ec1"/>
+        <circle cx="312" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <circle cx="326" cy="54" r="4.5" fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1.5"/>
+        <line x1="316.5" y1="54" x2="321.5" y2="54" stroke="white" stroke-width="1.5"/>
+        <line x1="307.5" y1="53" x2="305"   y2="51" stroke="white" stroke-width="1.3"/>
+        <line x1="330.5" y1="53" x2="333"   y2="51" stroke="white" stroke-width="1.3"/>
+        <path d="M 305,66 Q 301,80 301,95 L 337,95 Q 337,80 333,66 Q 327,70 319,70 Q 311,70 305,66 Z" fill="#148ec1"/>
+        <path d="M 311,66 L 319,77 L 327,66" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <!-- ══════ ORANGE TEACHER ICONS (second job) — cx 377,435,493,551 ══════ -->
+
+        <!-- Icon 7: cx=377 -->
+        <circle cx="377" cy="37" r="7"  fill="#f78f20"/>
+        <circle cx="377" cy="52" r="14" fill="#f78f20"/>
+        <circle cx="370" cy="54" r="4.5" fill="rgba(160,80,0,0.25)" stroke="white" stroke-width="1.5"/>
+        <circle cx="384" cy="54" r="4.5" fill="rgba(160,80,0,0.25)" stroke="white" stroke-width="1.5"/>
+        <line x1="374.5" y1="54" x2="379.5" y2="54" stroke="white" stroke-width="1.5"/>
+        <line x1="365.5" y1="53" x2="363"   y2="51" stroke="white" stroke-width="1.3"/>
+        <line x1="388.5" y1="53" x2="391"   y2="51" stroke="white" stroke-width="1.3"/>
+        <path d="M 363,66 Q 359,80 359,95 L 395,95 Q 395,80 391,66 Q 385,70 377,70 Q 369,70 363,66 Z" fill="#f78f20"/>
+        <path d="M 369,66 L 377,77 L 385,66" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M 373,100 Q 373,96 377,96 Q 381,96 381,100" stroke="#f78f20" fill="none" stroke-width="1.6"/>
+        <rect x="369" y="100" width="16" height="11" rx="2" fill="#f78f20" opacity="0.72"/>
+
+        <!-- Icon 8: cx=435 -->
+        <circle cx="435" cy="37" r="7"  fill="#f78f20"/>
+        <circle cx="435" cy="52" r="14" fill="#f78f20"/>
+        <circle cx="428" cy="54" r="4.5" fill="rgba(160,80,0,0.25)" stroke="white" stroke-width="1.5"/>
+        <circle cx="442" cy="54" r="4.5" fill="rgba(160,80,0,0.25)" stroke="white" stroke-width="1.5"/>
+        <line x1="432.5" y1="54" x2="437.5" y2="54" stroke="white" stroke-width="1.5"/>
+        <line x1="423.5" y1="53" x2="421"   y2="51" stroke="white" stroke-width="1.3"/>
+        <line x1="446.5" y1="53" x2="449"   y2="51" stroke="white" stroke-width="1.3"/>
+        <path d="M 421,66 Q 417,80 417,95 L 453,95 Q 453,80 449,66 Q 443,70 435,70 Q 427,70 421,66 Z" fill="#f78f20"/>
+        <path d="M 427,66 L 435,77 L 443,66" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M 431,100 Q 431,96 435,96 Q 439,96 439,100" stroke="#f78f20" fill="none" stroke-width="1.6"/>
+        <rect x="427" y="100" width="16" height="11" rx="2" fill="#f78f20" opacity="0.72"/>
+
+        <!-- Icon 9: cx=493 -->
+        <circle cx="493" cy="37" r="7"  fill="#f78f20"/>
+        <circle cx="493" cy="52" r="14" fill="#f78f20"/>
+        <circle cx="486" cy="54" r="4.5" fill="rgba(160,80,0,0.25)" stroke="white" stroke-width="1.5"/>
+        <circle cx="500" cy="54" r="4.5" fill="rgba(160,80,0,0.25)" stroke="white" stroke-width="1.5"/>
+        <line x1="490.5" y1="54" x2="495.5" y2="54" stroke="white" stroke-width="1.5"/>
+        <line x1="481.5" y1="53" x2="479"   y2="51" stroke="white" stroke-width="1.3"/>
+        <line x1="504.5" y1="53" x2="507"   y2="51" stroke="white" stroke-width="1.3"/>
+        <path d="M 479,66 Q 475,80 475,95 L 511,95 Q 511,80 507,66 Q 501,70 493,70 Q 485,70 479,66 Z" fill="#f78f20"/>
+        <path d="M 485,66 L 493,77 L 501,66" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M 489,100 Q 489,96 493,96 Q 497,96 497,100" stroke="#f78f20" fill="none" stroke-width="1.6"/>
+        <rect x="485" y="100" width="16" height="11" rx="2" fill="#f78f20" opacity="0.72"/>
+
+        <!-- Icon 10: cx=551 -->
+        <circle cx="551" cy="37" r="7"  fill="#f78f20"/>
+        <circle cx="551" cy="52" r="14" fill="#f78f20"/>
+        <circle cx="544" cy="54" r="4.5" fill="rgba(160,80,0,0.25)" stroke="white" stroke-width="1.5"/>
+        <circle cx="558" cy="54" r="4.5" fill="rgba(160,80,0,0.25)" stroke="white" stroke-width="1.5"/>
+        <line x1="548.5" y1="54" x2="553.5" y2="54" stroke="white" stroke-width="1.5"/>
+        <line x1="539.5" y1="53" x2="537"   y2="51" stroke="white" stroke-width="1.3"/>
+        <line x1="562.5" y1="53" x2="565"   y2="51" stroke="white" stroke-width="1.3"/>
+        <path d="M 537,66 Q 533,80 533,95 L 569,95 Q 569,80 565,66 Q 559,70 551,70 Q 543,70 537,66 Z" fill="#f78f20"/>
+        <path d="M 543,66 L 551,77 L 559,66" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M 547,100 Q 547,96 551,96 Q 555,96 555,100" stroke="#f78f20" fill="none" stroke-width="1.6"/>
+        <rect x="543" y="100" width="16" height="11" rx="2" fill="#f78f20" opacity="0.72"/>
+
+        <!-- ─── LEGEND ─── -->
+        <!-- Teal mini-teacher -->
+        <circle cx="78"  cy="143" r="5"  fill="#148ec1"/>
+        <circle cx="78"  cy="153" r="9"  fill="#148ec1"/>
+        <circle cx="74"  cy="154" r="3"  fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1"/>
+        <circle cx="82"  cy="154" r="3"  fill="rgba(10,80,130,0.3)" stroke="white" stroke-width="1"/>
+        <text x="93" y="153" font-size="11" fill="#3a3a3c" dominant-baseline="middle">One job</text>
+
+        <!-- Orange mini-teacher + briefcase -->
+        <circle cx="228" cy="143" r="5"  fill="#f78f20"/>
+        <circle cx="228" cy="153" r="9"  fill="#f78f20"/>
+        <circle cx="224" cy="154" r="3"  fill="rgba(160,80,0,0.25)" stroke="white" stroke-width="1"/>
+        <circle cx="232" cy="154" r="3"  fill="rgba(160,80,0,0.25)" stroke="white" stroke-width="1"/>
+        <path d="M 225,166 Q 225,163 228,163 Q 231,163 231,166" stroke="#f78f20" fill="none" stroke-width="1.2"/>
+        <rect x="223" y="166" width="10" height="7" rx="1.5" fill="#f78f20" opacity="0.72"/>
+        <text x="243" y="153" font-size="11" fill="#3a3a3c" dominant-baseline="middle">Works a second job to cover the gap</text>
+      </svg>
+      <p class="source-note">Sources: <sup>3</sup> First Impressions Wage Survey, July 2025 (N=7 providers) &nbsp; <sup>4</sup> MIT Living Wage Calculator, 2023 (single adult, no children, Routt County)</p>
+    </div>
+
+
+    <p class="narrative">
+      High turnover isn't a sign that educators don't care — it's a sign that the <span class="highlight">wages don't work</span>. When a lead teacher earning $21–$27 per hour can't cover rent in a county where the living wage is $29/hour, they leave. And every time a teacher leaves, children lose continuity of care, families lose stability, and providers lose the investment they made in training and onboarding.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4: THE RIPPLE EFFECTS
+============================================================ -->
+<div class="section-accent" style="background: var(--purple);"></div>
+<section class="section section--alt" id="ripple" data-nav="ripple">
+  <div class="container">
+    <p class="section-label" style="color: var(--purple);">04 / The Ripple Effects</p>
+    <h2>Child care failure is driving families out of Routt County</h2>
+    <p class="section-intro">The effects of the child care crisis extend far beyond individual families. The community is losing the workforce it needs — and the economic consequences are mounting.</p>
+
+    <div class="key-stat fade-up">
+      <div class="key-stat-number" style="color: var(--purple);">−<span data-counter data-target="317" data-suffix="">0</span></div>
+      <div class="key-stat-desc">residents ages 25–44 lost since the 2018 peak — a <strong>steady seven-year decline</strong> while Routt County's total population held essentially flat<sup>5</sup></div>
+    </div>
+
+    <!-- Demographics trendline — full width -->
+    <div class="chart-wrap fade-up">
+      <div class="chart-title">Routt County residents ages 25–44 — annual trendline, 2017–2024</div>
+      <p class="chart-sub-headline">When families can't find care, they leave. Routt County is losing the core of its workforce.</p>
+      <div class="chart-container chart-container--short">
+        <canvas id="chart-demographics" data-chart></canvas>
+      </div>
+      <p class="source-note"><sup>5</sup> U.S. Census Bureau, ACS 5-Year Estimates (Table S0101), 2017–2024. 2020 not released due to COVID-19. Total county population 2017–2024 remained essentially flat (~25,000).</p>
+    </div>
+
+    <!-- Economic Flow Diagram — replaces peer lollipop + 4 stat cards -->
+    <div class="chart-wrap fade-up">
+      <div class="chart-title">The economic cost of inaction — and the case for investment</div>
+      <!--
+        Sankey-style SVG flow: 3 drain sources → convergence node → 2 diverging paths (inaction vs. investment).
+        Source boxes right-edge x=165. Center node x=255-375. Right boxes x=468-633.
+        Bezier control points use midpoint x for smooth S-curves.
+        Stroke-width proportional to dollar magnitude:
+          $27.6M → 28px  |  $10M → 14px  |  317 residents → 7px
+          Merged → 40px  |  inaction → 32px  |  investment → 14px
+      -->
+      <svg viewBox="-10 0 660 310" width="100%" aria-label="Economic flow diagram showing drain sources converging to annual loss, then splitting to inaction or investment paths" font-family="'Montserrat',Arial,sans-serif">
+
+        <!-- SECTION LABELS -->
+        <text x="93"  y="12" text-anchor="middle" font-size="9" font-weight="800" fill="#e41d1b" letter-spacing="1.2">WHAT ROUTT LOSES EACH YEAR</text>
+        <text x="561" y="12" text-anchor="middle" font-size="9" font-weight="800" fill="#148ec1" letter-spacing="1.2">THE INVESTMENT PATH</text>
+
+        <!-- ─── DRAIN SOURCE BOXES (left) — 8px left margin to prevent stroke clip ─── -->
+        <!-- Box 1: $27.6M commuter income -->
+        <rect x="8" y="22" width="165" height="58" rx="8" fill="rgba(228,29,27,0.07)" stroke="#e41d1b" stroke-width="1.5"/>
+        <text x="91" y="43" text-anchor="middle" font-size="15" font-weight="800" fill="#e41d1b">$27.6M</text>
+        <text x="91" y="58" text-anchor="middle" font-size="9.5" fill="#3a3a3c">Commuter income earned</text>
+        <text x="91" y="70" text-anchor="middle" font-size="9.5" fill="#3a3a3c">outside Routt County / yr</text>
+
+        <!-- Box 2: $10M unrealized potential -->
+        <rect x="8" y="128" width="165" height="58" rx="8" fill="rgba(228,29,27,0.07)" stroke="#e41d1b" stroke-width="1.5"/>
+        <text x="91" y="149" text-anchor="middle" font-size="15" font-weight="800" fill="#e41d1b">$10M+</text>
+        <text x="91" y="164" text-anchor="middle" font-size="9.5" fill="#3a3a3c">Unrealized economic</text>
+        <text x="91" y="176" text-anchor="middle" font-size="9.5" fill="#3a3a3c">potential per year</text>
+
+        <!-- Box 3: 317 residents lost -->
+        <rect x="8" y="230" width="165" height="58" rx="8" fill="rgba(228,29,27,0.07)" stroke="#e41d1b" stroke-width="1.5"/>
+        <text x="91" y="251" text-anchor="middle" font-size="15" font-weight="800" fill="#e41d1b">317</text>
+        <text x="91" y="266" text-anchor="middle" font-size="9.5" fill="#3a3a3c">Residents ages 25–44</text>
+        <text x="91" y="278" text-anchor="middle" font-size="9.5" fill="#3a3a3c">lost since 2018 peak</text>
+
+        <!-- ─── FLOW PATHS: sources → center node ─── -->
+        <path d="M 173,51  C 218,51  218,165 263,165" fill="none" stroke="rgba(228,29,27,0.22)" stroke-width="28" stroke-linecap="round"/>
+        <path d="M 173,157 C 218,157 218,165 263,165" fill="none" stroke="rgba(228,29,27,0.18)" stroke-width="14" stroke-linecap="round"/>
+        <path d="M 173,259 C 218,259 218,165 263,165" fill="none" stroke="rgba(228,29,27,0.14)" stroke-width="7"  stroke-linecap="round"/>
+
+        <!-- ─── CENTER CONVERGENCE NODE ─── -->
+        <rect x="263" y="88" width="120" height="155" rx="10" fill="rgba(228,29,27,0.10)" stroke="#e41d1b" stroke-width="2"/>
+        <text x="323" y="118" text-anchor="middle" font-size="11" font-weight="800" fill="#e41d1b">$37.6M+</text>
+        <text x="323" y="134" text-anchor="middle" font-size="10" font-weight="700" fill="#e41d1b">ANNUAL</text>
+        <text x="323" y="148" text-anchor="middle" font-size="10" font-weight="700" fill="#e41d1b">ECONOMIC</text>
+        <text x="323" y="162" text-anchor="middle" font-size="10" font-weight="700" fill="#e41d1b">DRAIN</text>
+        <line x1="274" y1="177" x2="372" y2="177" stroke="rgba(228,29,27,0.2)" stroke-width="1"/>
+        <text x="323" y="190" text-anchor="middle" font-size="8.5" fill="#6e6e73">Routt invests</text>
+        <text x="323" y="204" text-anchor="middle" font-size="14" font-weight="800" fill="#e41d1b">$0</text>
+        <text x="323" y="218" text-anchor="middle" font-size="8.5" fill="#6e6e73">in child care / yr</text>
+
+        <!-- ─── DIVERGING PATHS ─── -->
+        <path d="M 383,165 C 428,165 428,253 476,253" fill="none" stroke="rgba(228,29,27,0.20)" stroke-width="30" stroke-linecap="round"/>
+        <path d="M 383,165 C 428,165 428,80  476,80"  fill="none" stroke="rgba(20,142,193,0.25)" stroke-width="14" stroke-linecap="round"/>
+        <text x="461" y="165" text-anchor="middle" font-size="10" font-weight="800" fill="#6e6e73" dominant-baseline="middle">↕ OR</text>
+
+        <!-- ─── INACTION BOX (bottom right) ─── -->
+        <rect x="476" y="218" width="168" height="68" rx="8" fill="rgba(228,29,27,0.06)" stroke="#e41d1b" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="560" y="239" text-anchor="middle" font-size="11" font-weight="700" fill="#e41d1b">INACTION</text>
+        <text x="560" y="254" text-anchor="middle" font-size="9.5" fill="#3a3a3c">Drain compounds year over year</text>
+        <text x="560" y="268" text-anchor="middle" font-size="9.5" fill="#3a3a3c">Families keep leaving</text>
+
+        <!-- ─── INVESTMENT BOX (top right) ─── -->
+        <rect x="476" y="32" width="168" height="100" rx="8" fill="rgba(20,142,193,0.07)" stroke="#148ec1" stroke-width="1.5"/>
+        <text x="560" y="54" text-anchor="middle" font-size="11" font-weight="700" fill="#148ec1">INVEST $8.5M / YR</text>
+        <line x1="488" y1="63" x2="632" y2="63" stroke="#d1d1d6" stroke-width="1"/>
+        <text x="560" y="79" text-anchor="middle" font-size="10" fill="#3a3a3c">$7.30 returned per $1 invested</text>
+        <text x="560" y="95" text-anchor="middle" font-size="14" font-weight="800" fill="#148ec1">= $62M+</text>
+        <text x="560" y="112" text-anchor="middle" font-size="9.5" fill="#3a3a3c">community benefit / yr</text>
+      </svg>
+      <p class="source-note">Sources: <sup>1</sup> Strategic Investment Plan (2026) &nbsp; <sup>2</sup> Brodsky Report (2025) &nbsp; <sup>6</sup> Eagle County Lodging Tax, Roaring Fork Valley Quarter-cent Sales Tax, Larimer County local mechanism &nbsp; <sup>7</sup> Economic modeling, Routt County</p>
+    </div>
+
+    <p class="narrative">
+      The trendline tells the story: Routt County's 25–44 population peaked in 2018 at 7,452 and has declined every measured year since — even as the county's total population stayed flat. These are the families who need child care, and they are leaving. While peer mountain resort communities have created dedicated local funding mechanisms to keep families here, <span class="highlight">Routt County has none</span>. Eagle County and Roaring Fork Valley are investing $8–10 million per year. Routt County is investing zero.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5: THE PATH FORWARD
+============================================================ -->
+<div class="section-accent" style="background: var(--teal);"></div>
+<section class="section" id="forward" data-nav="forward">
+  <div class="container">
+    <p class="section-label" style="color: var(--teal);">05 / The Path Forward</p>
+    <h2>The community has the power to fix this</h2>
+    <p class="section-intro">Routt County needs $8.5 million in annual investment to fully fund a child care system that works for families, providers, and the broader economy.</p>
+
+    <div class="key-stat fade-up">
+      <div class="key-stat-number" style="color: var(--teal);">$8.5M</div>
+      <div class="key-stat-desc">annual funding gap — the difference between the <strong>$17.5M it costs to fully fund the system</strong> and what currently exists<sup>1</sup></div>
+    </div>
+
+    <!-- BLUEPRINT TO 2030: Three architectural pillars holding up 2030 goals on a roof beam -->
+    <div class="chart-wrap fade-up">
+      <div class="chart-title">The Community Blueprint — $8.5M builds three pillars that hold up Routt County's future</div>
+      <!--
+        Architectural pillar diagram. Three pillars side by side with a shared roof beam.
+        Pillar centers at x=140, 310, 480. Each pillar body 116px wide.
+        Roof beam spans x=60 to x=560, height 50px. 2030 goals displayed on beam.
+        Foundation bases below pillar bodies contain investment amounts.
+        Ground platform at y=262.
+      -->
+      <svg viewBox="0 0 620 300" width="100%" aria-label="Blueprint to 2030: Three pillars (Space, Access, People) hold up a roof containing 2030 goals" font-family="'Montserrat',Arial,sans-serif">
+
+        <!-- ── ROOF BEAM with 2030 goals ── -->
+        <rect x="60" y="28" width="500" height="50" rx="6" fill="#1c1c1e"/>
+        <!-- Subtle top highlight on beam -->
+        <rect x="60" y="28" width="500" height="6" rx="6 6 0 0" fill="rgba(255,255,255,0.07)"/>
+
+        <!-- Goal 1 over Space pillar (center x=140) -->
+        <!-- Bullseye icon -->
+        <circle cx="76"  cy="53" r="7"   fill="none" stroke="#148ec1" stroke-width="2"/>
+        <circle cx="76"  cy="53" r="3.5" fill="none" stroke="#148ec1" stroke-width="1.5"/>
+        <circle cx="76"  cy="53" r="1.2" fill="#148ec1"/>
+        <text x="90" y="48" font-size="10.5" font-weight="800" fill="white">+270 licensed slots</text>
+        <text x="90" y="63" font-size="8.5"  fill="rgba(255,255,255,0.65)">by 2030</text>
+
+        <!-- Goal 2 over Access pillar (center x=310) -->
+        <circle cx="246" cy="53" r="7"   fill="none" stroke="#b2489b" stroke-width="2"/>
+        <circle cx="246" cy="53" r="3.5" fill="none" stroke="#b2489b" stroke-width="1.5"/>
+        <circle cx="246" cy="53" r="1.2" fill="#b2489b"/>
+        <text x="260" y="48" font-size="10.5" font-weight="800" fill="white">90%+ access rate</text>
+        <text x="260" y="63" font-size="8.5"  fill="rgba(255,255,255,0.65)">up from ~70% today</text>
+
+        <!-- Goal 3 over People pillar (center x=480) -->
+        <circle cx="416" cy="53" r="7"   fill="none" stroke="#f78f20" stroke-width="2"/>
+        <circle cx="416" cy="53" r="3.5" fill="none" stroke="#f78f20" stroke-width="1.5"/>
+        <circle cx="416" cy="53" r="1.2" fill="#f78f20"/>
+        <text x="430" y="48" font-size="10.5" font-weight="800" fill="white">Living wages</text>
+        <text x="430" y="63" font-size="8.5"  fill="rgba(255,255,255,0.65)">for all educators</text>
+
+        <!-- ── PILLAR 1: SPACE (teal), center x=140, body x=82–198 ── -->
+        <!-- Pillar cap (connects to beam) -->
+        <rect x="74"  y="78" width="132" height="8" rx="0" fill="#0d7aad"/>
+        <!-- Pillar body -->
+        <rect x="82"  y="86" width="116" height="158" fill="#148ec1"/>
+        <!-- Inner detail line -->
+        <line x1="92" y1="118" x2="188" y2="118" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <!-- Pillar name -->
+        <text x="140" y="106" text-anchor="middle" font-size="13" font-weight="800" fill="white">SPACE</text>
+        <text x="140" y="121" text-anchor="middle" font-size="9"   fill="rgba(255,255,255,0.75)">Capacity Expansion</text>
+        <!-- Description -->
+        <text x="140" y="145" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.65)">New facilities,</text>
+        <text x="140" y="157" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.65)">renovation &</text>
+        <text x="140" y="169" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.65)">infrastructure</text>
+        <!-- Investment amount in pillar base -->
+        <rect x="74"  y="244" width="132" height="32" rx="0 0 5 5" fill="#0d7aad"/>
+        <text x="140" y="256" text-anchor="middle" font-size="10" font-weight="800" fill="white">$2.0M – $3.5M</text>
+        <text x="140" y="269" text-anchor="middle" font-size="8"   fill="rgba(255,255,255,0.75)">per year</text>
+
+        <!-- ── PILLAR 2: ACCESS (purple), center x=310, body x=252–368 ── -->
+        <rect x="244" y="78" width="132" height="8" rx="0" fill="#8a3378"/>
+        <rect x="252" y="86" width="116" height="158" fill="#b2489b"/>
+        <line x1="262" y1="118" x2="358" y2="118" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <text x="310" y="106" text-anchor="middle" font-size="13" font-weight="800" fill="white">ACCESS</text>
+        <text x="310" y="121" text-anchor="middle" font-size="9"   fill="rgba(255,255,255,0.75)">Affordability &amp; Reach</text>
+        <text x="310" y="145" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.65)">Tuition assistance</text>
+        <text x="310" y="157" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.65)">& flexible care</text>
+        <text x="310" y="169" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.65)">for all families</text>
+        <rect x="244" y="244" width="132" height="32" rx="0 0 5 5" fill="#8a3378"/>
+        <text x="310" y="256" text-anchor="middle" font-size="10" font-weight="800" fill="white">$1.8M – $2.9M</text>
+        <text x="310" y="269" text-anchor="middle" font-size="8"   fill="rgba(255,255,255,0.75)">per year</text>
+
+        <!-- ── PILLAR 3: PEOPLE (orange), center x=480, body x=422–538 ── -->
+        <rect x="414" y="78" width="132" height="8" rx="0" fill="#c97016"/>
+        <rect x="422" y="86" width="116" height="158" fill="#f78f20"/>
+        <line x1="432" y1="118" x2="528" y2="118" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <text x="480" y="106" text-anchor="middle" font-size="13" font-weight="800" fill="white">PEOPLE</text>
+        <text x="480" y="121" text-anchor="middle" font-size="9"   fill="rgba(255,255,255,0.75)">Workforce &amp; Wages</text>
+        <text x="480" y="145" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.65)">Wage supplements,</text>
+        <text x="480" y="157" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.65)">housing support</text>
+        <text x="480" y="169" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.65)">& retention</text>
+        <rect x="414" y="244" width="132" height="32" rx="0 0 5 5" fill="#c97016"/>
+        <text x="480" y="256" text-anchor="middle" font-size="10" font-weight="800" fill="white">$2.3M – $3.8M</text>
+        <text x="480" y="269" text-anchor="middle" font-size="8"   fill="rgba(255,255,255,0.75)">per year</text>
+
+        <!-- ── GROUND PLATFORM ── -->
+        <rect x="0"   y="276" width="620" height="6"  rx="0" fill="#d1d1d6"/>
+        <rect x="0"   y="282" width="620" height="3"  rx="0" fill="#c7c7cc"/>
+
+        <!-- ── $8.5M TOTAL ANNOTATION ── -->
+        <text x="310" y="296" text-anchor="middle" font-size="9.5" fill="#6e6e73">Combined annual investment: <tspan font-weight="800" fill="#148ec1">$8.5M</tspan> · Builds all three pillars simultaneously · Returns <tspan font-weight="800" fill="#148ec1">$7.30</tspan> per $1 invested</text>
+
+      </svg>
+    </div>
+
+    <!-- Peer funding comparison — moved here from Section 4 -->
+    <div class="chart-wrap fade-up">
+      <div class="chart-title">Routt County vs. peer mountain communities — annual local investment</div>
+      <svg viewBox="0 0 500 205" width="100%" aria-label="Peer funding comparison: Larimer $28M, Roaring Fork $10M, Eagle $8M, Routt $0" font-family="'Montserrat',Arial,sans-serif">
+        <!-- Larimer County: $28M → bar 250px -->
+        <text x="140" y="38"  text-anchor="end" font-size="12" font-weight="600" fill="#3a3a3c" dominant-baseline="middle">Larimer County</text>
+        <line x1="148" y1="38" x2="398" y2="38" stroke="#d1d1d6" stroke-width="1.5"/>
+        <line x1="148" y1="38" x2="398" y2="38" stroke="#148ec1" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="398" cy="38" r="12" fill="#148ec1"/>
+        <text x="398" y="38" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="700" fill="white">$28M</text>
+        <!-- Roaring Fork: $10M → bar 89px -->
+        <text x="140" y="88"  text-anchor="end" font-size="12" font-weight="600" fill="#3a3a3c" dominant-baseline="middle">Roaring Fork Valley</text>
+        <line x1="148" y1="88" x2="237" y2="88" stroke="#d1d1d6" stroke-width="1.5"/>
+        <line x1="148" y1="88" x2="237" y2="88" stroke="#148ec1" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="237" cy="88" r="12" fill="#148ec1"/>
+        <text x="237" y="88" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="700" fill="white">$10M</text>
+        <!-- Eagle County: $8M → bar 71px -->
+        <text x="140" y="138" text-anchor="end" font-size="12" font-weight="600" fill="#3a3a3c" dominant-baseline="middle">Eagle County</text>
+        <line x1="148" y1="138" x2="219" y2="138" stroke="#d1d1d6" stroke-width="1.5"/>
+        <line x1="148" y1="138" x2="219" y2="138" stroke="#148ec1" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="219" cy="138" r="12" fill="#148ec1"/>
+        <text x="219" y="138" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="700" fill="white">$8M</text>
+        <!-- Routt County: $0 — red ✗ -->
+        <text x="140" y="183" text-anchor="end" font-size="12" font-weight="800" fill="#e41d1b" dominant-baseline="middle">Routt County</text>
+        <line x1="148" y1="176" x2="148" y2="190" stroke="#e41d1b" stroke-width="2"/>
+        <line x1="140" y1="175" x2="156" y2="191" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="156" y1="175" x2="140" y2="191" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
+        <text x="164" y="183" text-anchor="start" font-size="12" font-weight="700" fill="#e41d1b" dominant-baseline="middle">$0 — No dedicated local funding</text>
+        <!-- Baseline axis -->
+        <line x1="148" y1="15" x2="148" y2="198" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3"/>
+      </svg>
+      <p class="source-note">Eagle County: Lodging Tax &nbsp;|&nbsp; Roaring Fork Valley: Quarter-cent Sales Tax &nbsp;|&nbsp; Larimer County: Local funding mechanism<sup>6</sup></p>
+    </div>
+
+    <blockquote class="peer-quote fade-up">
+      "Child care is infrastructure. And infrastructure takes investment. <strong>Eagle County — like Routt, a mountain resort economy — raises $8 million a year for child care through a lodging tax. Roaring Fork Valley raises $10 million through a quarter-cent sales tax.</strong> These are communities that look like Routt County. The question is not whether it's possible. It's whether Routt County will act."
+    </blockquote>
+  </div>
+</section>
+
+<!-- ============================================================
+     CALL TO ACTION
+============================================================ -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <h2>Ready to act?</h2>
+    <p>Every voice matters. Whether you vote, speak up, or spread the word — your engagement moves this forward.</p>
+    <div class="cta-buttons">
+      <a href="https://www.sos.state.co.us/voter/pages/pub/olvr/findVoterReg.xhtml" target="_blank" rel="noopener" class="cta-btn cta-btn--primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        Register to Vote
+      </a>
+      <a href="https://www.co.routt.co.us/RequestTracker.aspx" target="_blank" rel="noopener" class="cta-btn cta-btn--secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Tell Your Elected Officials
+      </a>
+      <a href="mailto:info@routtthrivebyfive.org?subject=Speaker%20Request" class="cta-btn cta-btn--secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Invite Us to Speak
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DATA SOURCES
+============================================================ -->
+<div class="footnotes-wrap">
+  <details>
+    <summary>Data sources &amp; methodology</summary>
+    <div class="footnote-body">
+      <p><sup>1</sup> <strong>Strategic Investment Plan (2026).</strong> First Impressions of Routt County: Routt County Strategic Child Care Investment Plan. Includes licensed slot counts, cost estimates, workforce data, and economic projections.</p>
+      <p><sup>2</sup> <strong>Brodsky Research &amp; Consulting (2025).</strong> "Early Childhood Education and Care Opportunities and Considerations: Analysis of Community Insights and Investment Options in Routt County, Colorado." Includes demand estimates, waitlist data, provider economics, and workforce analysis.</p>
+      <p><sup>3</sup> <strong>First Impressions of Routt County Wage Survey (July 2025).</strong> Provider compensation survey, N=7 providers. Educator wage ranges reflect typical lead teacher positions across surveyed programs.</p>
+      <p><sup>4</sup> <strong>MIT Living Wage Calculator (2023).</strong> livingwage.mit.edu — Routt County, Colorado. Living wage for a single adult with no children: $29.00/hour. Used as baseline affordability benchmark for educator wages.</p>
+      <p><sup>5</sup> <strong>U.S. Census Bureau, American Community Survey (ACS) 5-Year Estimates.</strong> Table S0101: Age and Sex. 2019 and 2024 estimates for Routt County, Colorado. All 64 Colorado counties analyzed for demographic comparison. Total population change: 25,072 (2019) → 25,084 (2024), +0.05%.</p>
+      <p><sup>6</sup> <strong>Peer community funding data.</strong> Eagle County (~$8M/year via Lodging Tax); Roaring Fork Valley (~$10M/year via quarter-cent Sales Tax); Larimer County (~$28M/year via local funding mechanism). Data sourced via Buell Foundation and local partners (2026). Routt County currently has no dedicated local child care funding mechanism.</p>
+      <p><sup>7</sup> <strong>Bureau of Economic Analysis (2023).</strong> Commuting and labor market data used to estimate income leakage from workers employed in Routt County who reside — and spend — elsewhere due to lack of local housing and child care options.</p>
+      <p><sup>8</sup> <strong>Routt County Child Care Needs Assessment (2023).</strong> Shields, L. and Franko, M., Butler Institute for Families, University of Denver. Background demand and demographic research.</p>
+      <p><strong>Note on pending data:</strong> The comparison of Routt County's 25–44 demographic loss rate relative to other Colorado counties is pending verification with the Colorado State Demographer's office. The absolute change data (−267 residents, −3.6%) is confirmed from ACS sources.</p>
+    </div>
+  </details>
+</div>
+
+<footer>
+  <strong>Routt Thrive by Five</strong> &nbsp;|&nbsp; First Impressions of Routt County &nbsp;|&nbsp; &copy; 2026. All data cited; see sources above.
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ----------------------------------------------------------
+     DATA
+  ---------------------------------------------------------- */
+  const DATA = {
+    gap: {
+      labels: ['Infants\n(0–18 mo)', 'Toddlers\n(18–36 mo)', 'Preschool\n(36–60 mo)', 'Total\nUnder 5'],
+      licensed: [51, 98, 498, 647],
+      needed:   [300, 318, 498, 916],
+      gaps:     [249, 220, 0, 269],
+    },
+    cost: {
+      labels: ['What families pay\n(annual tuition)', 'True cost of\nquality care', 'Provider revenue\nper child'],
+      values: [18500, 30000, 11500],
+      colors: ['rgba(231,93,36,0.85)', 'rgba(228,29,27,0.85)', 'rgba(20,142,193,0.85)'],
+    },
+    workforce: {
+      rangeMin: 21, rangeMax: 27, median: 26, livingWage: 29,
+    },
+    demographics: {
+      // ACS 5-Year estimates, 2017–2024 (2020 not released due to COVID)
+      // Variables: S0101_C01_007E (25-29), _008E (30-34), _009E (35-39), _010E (40-44)
+      years: [2017, 2018, 2019, 2021, 2022, 2023, 2024],
+      labels: ['2017', '2018', '2019', '2021\n(no 2020)', '2022', '2023', '2024'],
+      total:  [7341,  7452,  7402,  7183,  7197,  7226,  7135],
+      // Sub-cohorts for stacked area
+      age2529: [1865, 1965, 1854, 1666, 1603, 1517, 1389],
+      age3034: [1942, 1922, 1970, 1967, 1922, 1945, 1958],
+      age3539: [1895, 2042, 2102, 1970, 1959, 1849, 1802],
+      age4044: [1639, 1523, 1476, 1580, 1713, 1915, 1986],
+    },
+    peers: {
+      labels: ['Larimer County', 'Roaring Fork Valley', 'Eagle County', 'Routt County'],
+      funding: [28, 10, 8, 0],
+      colors: [
+        'rgba(20,142,193,0.8)',
+        'rgba(20,142,193,0.8)',
+        'rgba(20,142,193,0.8)',
+        'rgba(228,29,27,0.85)',
+      ],
+    },
+    pillars: {
+      labels: ['Space\n(Capacity)', 'Access\n(Affordability)', 'People\n(Workforce)'],
+      low:  [2.0, 1.8, 2.3],
+      high: [3.5, 2.9, 3.8],
+      colors: ['rgba(20,142,193,0.85)', 'rgba(178,72,155,0.85)', 'rgba(247,143,32,0.85)'],
+    },
+  };
+
+  /* ----------------------------------------------------------
+     CHART.JS GLOBAL DEFAULTS
+  ---------------------------------------------------------- */
+  Chart.defaults.font.family = "'Montserrat', Arial, sans-serif";
+  Chart.defaults.font.size = 12;
+  Chart.defaults.color = '#3a3a3c';
+  Chart.defaults.plugins.legend.labels.boxWidth = 12;
+  Chart.defaults.plugins.legend.labels.padding = 14;
+
+  /* ----------------------------------------------------------
+     HELPERS
+  ---------------------------------------------------------- */
+  function multilineLabel(label) {
+    return label.split('\n');
+  }
+
+  /* ----------------------------------------------------------
+     CHART RENDERERS
+  ---------------------------------------------------------- */
+  function renderGapChart() {
+    const ctx = document.getElementById('chart-gap');
+    if (!ctx) return;
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: DATA.gap.labels.map(multilineLabel),
+        datasets: [
+          {
+            label: 'Licensed Slots Available',
+            data: DATA.gap.licensed,
+            backgroundColor: 'rgba(20,142,193,0.85)',
+            borderRadius: 4,
+            borderSkipped: false,
+          },
+          {
+            label: 'Slots Needed',
+            data: DATA.gap.needed,
+            backgroundColor: 'rgba(228,29,27,0.18)',
+            borderColor: 'rgba(228,29,27,0.7)',
+            borderWidth: 2,
+            borderRadius: 4,
+            borderSkipped: false,
+          },
+        ],
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top' },
+          tooltip: {
+            callbacks: {
+              afterLabel(ctx) {
+                const gap = DATA.gap.gaps[ctx.dataIndex];
+                if (ctx.datasetIndex === 1 && gap > 0) {
+                  return `Gap: ${gap} slots`;
+                }
+                return '';
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(0,0,0,0.05)' },
+            ticks: { stepSize: 100 },
+          },
+          y: {
+            grid: { display: false },
+          },
+        },
+        animation: { duration: 900, easing: 'easeOutQuart' },
+      },
+    });
+  }
+
+  // Cost and workforce visualizations are now SVG — no Chart.js renderers needed.
+
+  function renderDemographicsChart() {
+    const ctx = document.getElementById('chart-demographics');
+    if (!ctx) return;
+    const d = DATA.demographics;
+
+    // Single total trendline — clean, focused narrative
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: d.labels,
+        datasets: [
+          {
+            label: 'Residents ages 25–44',
+            data: d.total,
+            backgroundColor: 'rgba(178,72,155,0.08)',
+            borderColor: '#b2489b',
+            borderWidth: 3,
+            fill: true,
+            tension: 0.35,
+            pointRadius: 5,
+            pointBackgroundColor: '#b2489b',
+            pointHoverRadius: 8,
+            pointBorderColor: '#fff',
+            pointBorderWidth: 2,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              title(items) {
+                return `ACS 5-Year: ${items[0].label.replace('\n', ' ')}`;
+              },
+              label(item) {
+                const val = item.parsed.y;
+                const peak = 7452;
+                const diff = val - peak;
+                return [
+                  ` Total ages 25–44: ${val.toLocaleString()}`,
+                  ` ${diff >= 0 ? '+' : ''}${diff} from 2018 peak`,
+                ];
+              },
+              afterBody(items) {
+                if (d.labels[items[0].dataIndex].includes('2021')) {
+                  return ['', '⚠ 2020 data not released (COVID-19)'];
+                }
+                return [];
+              },
+            },
+          },
+          annotation: {
+            annotations: {
+              peakLabel: {
+                type: 'label',
+                xValue: '2018',
+                yValue: 7452,
+                content: ['▲ Peak: 7,452'],
+                color: '#3a3a3c',
+                font: { size: 10, weight: '600', family: "'Montserrat', Arial, sans-serif" },
+                backgroundColor: 'rgba(255,255,255,0.9)',
+                borderColor: 'rgba(0,0,0,0.08)',
+                borderWidth: 1,
+                padding: { x: 6, y: 4 },
+                borderRadius: 4,
+                yAdjust: -18,
+              },
+              latestLabel: {
+                type: 'label',
+                xValue: '2024',
+                yValue: 7135,
+                content: ['7,135 (2024)', '▼ −317 from peak'],
+                color: '#e41d1b',
+                font: { size: 10, weight: '700', family: "'Montserrat', Arial, sans-serif" },
+                backgroundColor: 'rgba(255,255,255,0.95)',
+                borderColor: '#e41d1b',
+                borderWidth: 1,
+                padding: { x: 6, y: 4 },
+                borderRadius: 4,
+                xAdjust: -55,
+                yAdjust: 28,
+              },
+              economicCallout: {
+                type: 'label',
+                xValue: '2021\n(no 2020)',
+                yValue: 7050,
+                content: ['$10M+ in annual', 'economic potential lost'],
+                color: '#b2489b',
+                font: { size: 10, weight: '700', family: "'Montserrat', Arial, sans-serif" },
+                backgroundColor: 'rgba(178,72,155,0.08)',
+                borderColor: '#b2489b',
+                borderWidth: 1,
+                padding: { x: 8, y: 5 },
+                borderRadius: 6,
+                yAdjust: 0,
+              },
+            },
+          },
+        },
+        scales: {
+          y: {
+            min: 6900,
+            grid: { color: 'rgba(0,0,0,0.05)' },
+            ticks: {
+              callback(v) { return v.toLocaleString(); },
+              maxTicksLimit: 5,
+            },
+          },
+          x: {
+            grid: { display: false },
+            ticks: {
+              callback(val, idx) {
+                return d.labels[idx].split('\n')[0];
+              },
+            },
+          },
+        },
+        animation: { duration: 1000, easing: 'easeOutQuart' },
+      },
+    });
+  }
+
+  // Peer funding comparison is now an SVG lollipop chart — no Chart.js renderer needed.
+
+  function renderPillarsChart() {
+    const ctx = document.getElementById('chart-pillars');
+    if (!ctx) return;
+    // Midpoints of each pillar range — sum ≈ $8.15M ≈ $8.5M goal
+    const midpoints = [2.75, 2.35, 3.05];
+    const total = midpoints.reduce((a, b) => a + b, 0);
+    const colors = ['rgba(20,142,193,0.9)', 'rgba(178,72,155,0.9)', 'rgba(247,143,32,0.9)'];
+
+    // Inline center-text plugin
+    const centerTextPlugin = {
+      id: 'centerText',
+      afterDraw(chart) {
+        const { ctx: c, chartArea: { left, right, top, bottom } } = chart;
+        const cx = (left + right) / 2;
+        const cy = (top + bottom) / 2;
+        c.save();
+        c.textAlign = 'center';
+        c.textBaseline = 'middle';
+        c.font = '800 22px Montserrat, Arial, sans-serif';
+        c.fillStyle = '#1c1c1e';
+        c.fillText('$8.5M', cx, cy - 11);
+        c.font = '400 11px Montserrat, Arial, sans-serif';
+        c.fillStyle = '#6e6e73';
+        c.fillText('annual gap', cx, cy + 11);
+        c.restore();
+      },
+    };
+
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Space (Capacity)', 'Access (Affordability)', 'People (Workforce)'],
+        datasets: [{
+          data: midpoints,
+          backgroundColor: colors,
+          borderWidth: 4,
+          borderColor: '#ffffff',
+          hoverOffset: 10,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '62%',
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { padding: 18, boxWidth: 14, font: { size: 12 } },
+          },
+          tooltip: {
+            callbacks: {
+              label(ctx) {
+                const val = ctx.parsed;
+                const pct = Math.round((val / total) * 100);
+                const ranges = ['$2.0–3.5M', '$1.8–2.9M', '$2.3–3.8M'];
+                return ` ${ranges[ctx.dataIndex]}/year — ${pct}% of total`;
+              },
+            },
+          },
+        },
+        animation: { animateRotate: true, duration: 1000, easing: 'easeOutQuart' },
+      },
+      plugins: [centerTextPlugin],
+    });
+  }
+
+  /* Map of chart id → render function */
+  const CHART_RENDERERS = {
+    'chart-demographics': renderDemographicsChart,
+    'chart-pillars':      renderPillarsChart,
+  };
+
+  /* ----------------------------------------------------------
+     COUNTERS
+  ---------------------------------------------------------- */
+  function animateCounter(el) {
+    const raw = el.dataset.target;
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const decimals = parseInt(el.dataset.decimals || '0');
+    const target = parseFloat(raw);
+    const duration = 1400;
+    const start = performance.now();
+
+    function tick(now) {
+      const elapsed = now - start;
+      const p = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = target * eased;
+      el.textContent = prefix + (decimals > 0 ? val.toFixed(decimals) : Math.round(val)) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function initCounters() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !e.target.dataset.animated) {
+          e.target.dataset.animated = '1';
+          animateCounter(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-counter]').forEach(el => obs.observe(el));
+  }
+
+  /* ----------------------------------------------------------
+     FADE-UP ANIMATIONS
+  ---------------------------------------------------------- */
+  function initFadeIns() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  }
+
+  /* ----------------------------------------------------------
+     LAZY CHART INITIALIZATION
+  ---------------------------------------------------------- */
+  function initCharts() {
+    const rendered = new Set();
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const id = e.target.id;
+        if (e.isIntersecting && !rendered.has(id)) {
+          rendered.add(id);
+          const render = CHART_RENDERERS[id];
+          if (render) render();
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('canvas[data-chart]').forEach(el => obs.observe(el));
+  }
+
+  /* ----------------------------------------------------------
+     AFFORDABILITY METERS
+  ---------------------------------------------------------- */
+  function initMeters() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !e.target.dataset.animated) {
+          e.target.dataset.animated = '1';
+          setTimeout(() => {
+            const bench  = document.getElementById('meter-bench');
+            const goal   = document.getElementById('meter-goal');
+            const actual = document.getElementById('meter-actual');
+            if (bench)  bench.style.width  = '23.3%';   // 7/30
+            if (goal)   goal.style.width   = '33.3%';   // 10/30
+            if (actual) actual.style.width = '92%';     // 27.5/30 ≈ visual max
+          }, 200);
+        }
+      });
+    }, { threshold: 0.3 });
+    const meters = document.getElementById('meters');
+    if (meters) obs.observe(meters);
+  }
+
+  /* ----------------------------------------------------------
+     NAV PROGRESS DOTS
+  ---------------------------------------------------------- */
+  function initNav() {
+    const dots = document.querySelectorAll('.nav-dot[data-section]');
+    const sections = document.querySelectorAll('section[data-nav]');
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const target = document.getElementById(dot.dataset.section);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    if (!sections.length || !dots.length) return;
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.dataset.nav;
+          dots.forEach(d => d.classList.toggle('active', d.dataset.section === id));
+        }
+      });
+    }, { threshold: 0.35 });
+
+    sections.forEach(s => obs.observe(s));
+  }
+
+  /* ----------------------------------------------------------
+     HERO QUOTE WORD-BY-WORD FADE
+  ---------------------------------------------------------- */
+  function initHeroQuote() {
+    const el = document.getElementById('hero-quote');
+    if (!el) return;
+    const words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words.map((w, i) =>
+      `<span class="word" style="animation-delay:${(i * 0.055).toFixed(2)}s">${w}</span>`
+    ).join(' ');
+  }
+
+  /* ----------------------------------------------------------
+     SMOOTH SCROLL
+  ---------------------------------------------------------- */
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------
+     INIT
+  ---------------------------------------------------------- */
+  document.addEventListener('DOMContentLoaded', () => {
+    initHeroQuote();
+    initNav();
+    initCounters();
+    initFadeIns();
+    initMeters();
+    initCharts();
+    initSmoothScroll();
+  });
+
+}());
+</script>
+</body>
+</html>
