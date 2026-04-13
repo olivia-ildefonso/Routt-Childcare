@@ -907,84 +907,92 @@
       <p class="source-note" style="margin-top:1rem;">Median household income: $104,803 &nbsp;|&nbsp; Source: ACS 5-Year Estimates (2023)</p>
     </div>
 
-    <!-- THE FUNDING GAP — full width -->
+    <!-- THE UNFINISHED BRIDGE — full width -->
     <div class="chart-wrap fade-up">
-      <div class="chart-title">The Funding Gap</div>
+      <div class="chart-title">The Unfinished Bridge</div>
       <!--
-        Scale: $0–$35k across 560px total (x=30 to x=590). 16px per $1k.
-        Section 1 (teal):    families $22k  = 352px  → x=30–382
-        Section 2 (orange):  investment $8.5k = 136px → x=382–518
-        Section 3 (red):     remaining gap $4.5k = 72px  → x=518–590
-        Total: $22k + $8.5k + $4.5k = $35k ✓
+        Simplified bridge: arch + towers + 3 cables over teal section only.
+        No arch over the gap — open sky shows the bridge is unbuilt there.
+        No rebar, no hatching, no ghost elements.
 
-        Scale ticks:
-          $0  → x=30
-          $10k → x=190  (30 + 10/35*560)
-          $20k → x=350  (30 + 20/35*560)
-          $30k → x=510  (30 + 30/35*560)
-          $35k → x=590  (30 + 560)
+        Scale: x=42 to x=578, width=536px = $35k → 15.31px per $1k
+          $0   → x=42
+          $10k → x=195  (42 + 153)
+          $20k → x=348  (42 + 306)
+          $22k → x=379  (42 + 337) — families/gap junction
+          $30k → x=501  (42 + 459)
+          $35k → x=578  (42 + 536)
+
+        Arch (over teal section only): M 42,42 Q 210,8 379,42
+        Bezier cable y-values:
+          t=0.25 → x=126, y=27
+          t=0.50 → x=210, y=23
+          t=0.75 → x=294, y=27
       -->
-      <svg viewBox="0 0 620 228" width="100%" aria-label="Funding gap chart: families cover up to $22k per child, a community investment of $8.5k would relieve most of the remaining $13k educator burden, for a total true cost of $35k" font-family="'Montserrat',Arial,sans-serif">
+      <svg viewBox="0 0 620 208" width="100%" aria-label="Bridge showing families pay $15k–$22k (teal, built section) while educators absorb a $13k–$20k gap (red, unbuilt section). Together they span the $25k–$35k true cost of quality care." font-family="'Montserrat',Arial,sans-serif">
 
-        <!-- ── CONTEXT LABEL ── -->
-        <text x="310" y="15" text-anchor="middle" font-size="9" font-weight="700" letter-spacing="1.4" fill="#8e8e93">ESTIMATED TRUE COST OF QUALITY CARE PER CHILD / YEAR · $25K – $35K</text>
+        <!-- ── LEFT TOWER (teal, solid) ── -->
+        <rect x="35" y="42" width="14" height="83" rx="2" fill="#148ec1"/>
+        <rect x="29" y="36" width="26" height="10" rx="3" fill="#148ec1"/>
 
-        <!-- ── MAIN BAR: y=24–76 (h=52) ── -->
-        <!-- Track background -->
-        <rect x="30" y="24" width="560" height="52" rx="7" fill="#ebebeb"/>
+        <!-- ── JUNCTION TOWER (teal, solid) — where bridge construction stopped ── -->
+        <rect x="372" y="42" width="14" height="83" rx="2" fill="#148ec1"/>
+        <rect x="366" y="36" width="26" height="10" rx="3" fill="#148ec1"/>
 
-        <!-- SECTION 1 — Families $22k, 352px, teal solid -->
-        <rect x="30" y="24" width="352" height="52" rx="7 0 0 7" fill="#148ec1"/>
-        <text x="206" y="45" text-anchor="middle" font-size="13" font-weight="800" fill="white">Families Pay</text>
-        <text x="206" y="62" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.88)">$15,000 – $22,000 / year</text>
+        <!-- ── ARCH over teal section only ── -->
+        <path d="M 42,42 Q 210,8 379,42" fill="none" stroke="#148ec1" stroke-width="5" stroke-linecap="round"/>
 
-        <!-- SECTION 2 — $8.5k investment, 136px, orange dashed -->
-        <rect x="382" y="24" width="136" height="52" fill="rgba(247,143,32,0.14)" stroke="#f78f20" stroke-width="2" stroke-dasharray="8,5"/>
-        <text x="450" y="45" text-anchor="middle" font-size="12.5" font-weight="800" fill="#c46b00">$8.5k</text>
-        <text x="450" y="62" text-anchor="middle" font-size="9.5" fill="#c46b00">Community Investment</text>
+        <!-- ── 3 SUSPENSION CABLES (teal section only) ── -->
+        <line x1="126" y1="27" x2="126" y2="90" stroke="#148ec1" stroke-width="1.8" opacity="0.7"/>
+        <line x1="210" y1="23" x2="210" y2="90" stroke="#148ec1" stroke-width="1.8" opacity="0.7"/>
+        <line x1="294" y1="27" x2="294" y2="90" stroke="#148ec1" stroke-width="1.8" opacity="0.7"/>
 
-        <!-- SECTION 3 — Remaining gap $4.5k, 72px, red light -->
-        <rect x="518" y="24" width="72" height="52" rx="0 7 7 0" fill="rgba(228,29,27,0.08)" stroke="#e41d1b" stroke-width="2" stroke-dasharray="6,4"/>
-        <text x="554" y="45" text-anchor="middle" font-size="10" font-weight="800" fill="#e41d1b">$4.5k</text>
-        <text x="554" y="62" text-anchor="middle" font-size="9" fill="#e41d1b">Still a gap</text>
+        <!-- ── GAP CALLOUT — open sky above the gap (no arch there) ── -->
+        <text x="479" y="40" text-anchor="middle" font-size="12" font-weight="800" fill="#e41d1b">Educators absorb</text>
+        <text x="479" y="56" text-anchor="middle" font-size="12" font-weight="800" fill="#e41d1b">the $13k–$20k gap</text>
+        <text x="479" y="71" text-anchor="middle" font-size="9.5" fill="#8e8e93">with their own wages</text>
+        <!-- Arrow pointing down to gap deck -->
+        <line x1="479" y1="76" x2="479" y2="86" stroke="#e41d1b" stroke-width="1.5"/>
+        <polygon points="475,86 479,92 483,86" fill="#e41d1b"/>
 
-        <!-- Section dividers (subtle white lines) -->
-        <line x1="382" y1="24" x2="382" y2="76" stroke="rgba(255,255,255,0.65)" stroke-width="2"/>
-        <line x1="518" y1="24" x2="518" y2="76" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
+        <!-- ── ROAD DECK ── -->
+        <!-- Full track background -->
+        <rect x="42" y="90" width="536" height="35" rx="5" fill="#e8e8e8"/>
+
+        <!-- TEAL: families ($22k = 337px wide) -->
+        <rect x="42" y="90" width="337" height="35" rx="5 0 0 5" fill="#148ec1"/>
+        <text x="210" y="104" text-anchor="middle" font-size="12.5" font-weight="800" fill="white" dominant-baseline="middle">Families Pay</text>
+        <text x="210" y="118" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.88)" dominant-baseline="middle">$15,000 – $22,000 / year</text>
+
+        <!-- GAP: educator burden ($13k = 199px, red outline, no fill pattern) -->
+        <rect x="379" y="90" width="199" height="35" rx="0 5 5 0" fill="rgba(228,29,27,0.07)" stroke="#e41d1b" stroke-width="2" stroke-dasharray="8,5"/>
+
+        <!-- White divider at junction -->
+        <line x1="379" y1="90" x2="379" y2="125" stroke="white" stroke-width="2.5"/>
 
         <!-- ── DOLLAR SCALE ── -->
-        <line x1="30"  y1="76" x2="30"  y2="82" stroke="#c7c7cc" stroke-width="1"/>
-        <line x1="190" y1="76" x2="190" y2="82" stroke="#c7c7cc" stroke-width="1"/>
-        <line x1="350" y1="76" x2="350" y2="82" stroke="#c7c7cc" stroke-width="1"/>
-        <line x1="510" y1="76" x2="510" y2="82" stroke="#c7c7cc" stroke-width="1"/>
-        <line x1="590" y1="76" x2="590" y2="82" stroke="#c7c7cc" stroke-width="1"/>
+        <line x1="42"  y1="125" x2="42"  y2="131" stroke="#c7c7cc" stroke-width="1"/>
+        <line x1="195" y1="125" x2="195" y2="131" stroke="#c7c7cc" stroke-width="1"/>
+        <line x1="348" y1="125" x2="348" y2="131" stroke="#c7c7cc" stroke-width="1"/>
+        <line x1="501" y1="125" x2="501" y2="131" stroke="#c7c7cc" stroke-width="1"/>
+        <line x1="578" y1="125" x2="578" y2="131" stroke="#c7c7cc" stroke-width="1"/>
 
-        <text x="30"  y="92" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$0</text>
-        <text x="190" y="92" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$10k</text>
-        <text x="350" y="92" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$20k</text>
-        <text x="510" y="92" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$30k</text>
-        <text x="590" y="92" text-anchor="middle" font-size="9.5" font-weight="700" fill="#148ec1">$35k</text>
+        <text x="42"  y="141" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$0</text>
+        <text x="195" y="141" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$10k</text>
+        <text x="348" y="141" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$20k</text>
+        <text x="501" y="141" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$30k</text>
+        <text x="578" y="141" text-anchor="middle" font-size="9.5" font-weight="700" fill="#148ec1">$35k</text>
 
-        <!-- ── EDUCATOR BURDEN BRACKET ── -->
-        <!-- Spans both gap sections: x=382 to x=590 = $13k educator burden today -->
-        <line x1="382" y1="106" x2="590" y2="106" stroke="#e41d1b" stroke-width="1.5"/>
-        <line x1="382" y1="100" x2="382" y2="106" stroke="#e41d1b" stroke-width="1.5"/>
-        <line x1="590" y1="100" x2="590" y2="106" stroke="#e41d1b" stroke-width="1.5"/>
-        <!-- Center down-tick -->
-        <line x1="486" y1="106" x2="486" y2="112" stroke="#e41d1b" stroke-width="1.5"/>
-        <text x="486" y="125" text-anchor="middle" font-size="10.5" font-weight="800" fill="#e41d1b">Educators absorb this $13k gap today</text>
-        <text x="486" y="139" text-anchor="middle" font-size="9" fill="#8e8e93">At lower family incomes, the gap can reach $20k</text>
-
-        <!-- ── INVESTMENT CALLOUT (arrow up to section 2) ── -->
-        <line x1="450" y1="153" x2="450" y2="144" stroke="#f78f20" stroke-width="1.5" stroke-dasharray="3,2"/>
-        <polygon points="446,144 450,136 454,144" fill="#f78f20"/>
-        <text x="450" y="165" text-anchor="middle" font-size="9.5" font-weight="700" fill="#c46b00">↑ Investment covers 65% of the gap</text>
-        <text x="450" y="178" text-anchor="middle" font-size="9" fill="#8e8e93">reducing educator burden from $13k → $4.5k</text>
+        <!-- ── TRUE COST SPAN LABEL ── -->
+        <!-- Bracket below scale showing full span = true cost -->
+        <line x1="42"  y1="152" x2="578" y2="152" stroke="#d1d1d6" stroke-width="1"/>
+        <line x1="42"  y1="148" x2="42"  y2="152" stroke="#d1d1d6" stroke-width="1"/>
+        <line x1="578" y1="148" x2="578" y2="152" stroke="#d1d1d6" stroke-width="1"/>
+        <text x="310" y="165" text-anchor="middle" font-size="9" font-weight="600" fill="#8e8e93" letter-spacing="0.5">TRUE COST OF QUALITY CARE PER CHILD: $25,000 – $35,000 / YEAR</text>
 
         <!-- ── INSIGHT BOX ── -->
-        <rect x="30" y="192" width="560" height="30" rx="7" fill="rgba(20,142,193,0.07)" stroke="#148ec1" stroke-width="1.5"/>
-        <text x="310" y="208" text-anchor="middle" font-size="10.5" font-weight="700" fill="#148ec1">Without public investment, educators bridge the gap with their own wages.</text>
-        <text x="310" y="220" text-anchor="middle" font-size="10" fill="#3a3a3c">The $8.5k ask would fund 65% of that deficit and move toward a sustainable system.</text>
+        <rect x="42" y="177" width="536" height="26" rx="6" fill="rgba(228,29,27,0.06)" stroke="#e41d1b" stroke-width="1.5"/>
+        <text x="310" y="194" text-anchor="middle" font-size="10.5" font-weight="700" fill="#c0392b">Educators effectively subsidize the child care system — with their own wages.</text>
 
       </svg>
       <p class="source-note">Sources: <sup>1</sup> Strategic Investment Plan (2026) &nbsp; <sup>2</sup> Brodsky Report (2025)</p>
