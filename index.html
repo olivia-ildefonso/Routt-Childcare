@@ -907,194 +907,84 @@
       <p class="source-note" style="margin-top:1rem;">Median household income: $104,803 &nbsp;|&nbsp; Source: ACS 5-Year Estimates (2023)</p>
     </div>
 
-    <!-- THE UNFINISHED BRIDGE — full width -->
+    <!-- THE FUNDING GAP — full width -->
     <div class="chart-wrap fade-up">
-      <div class="chart-title">The Unfinished Bridge</div>
+      <div class="chart-title">The Funding Gap</div>
       <!--
-        True suspension bridge silhouette above teal section (arch + cables + towers).
-        Rebar sticking right out of junction tower = construction stopped here.
-        Hollow gap = no deck, no arch above it.
-        Gap callout above open sky. Path Forward pill bottom-right, no overlap.
-        No footer labels — figures tell that story.
+        Scale: $0–$35k across 560px total (x=30 to x=590). 16px per $1k.
+        Section 1 (teal):    families $22k  = 352px  → x=30–382
+        Section 2 (orange):  investment $8.5k = 136px → x=382–518
+        Section 3 (red):     remaining gap $4.5k = 72px  → x=518–590
+        Total: $22k + $8.5k + $4.5k = $35k ✓
 
-        Layout (all y coords):
-          y=0–42:   Bridge arch + cable tops
-          y=42–95:  Arch lower / towers
-          y=95–128: Road deck (teal + gap + ghost)
-          y=128–142: Dollar scale
-          y=142–245: Figures + Path Forward pill
+        Scale ticks:
+          $0  → x=30
+          $10k → x=190  (30 + 10/35*560)
+          $20k → x=350  (30 + 20/35*560)
+          $30k → x=510  (30 + 30/35*560)
+          $35k → x=590  (30 + 560)
       -->
-      <svg viewBox="0 0 620 250" width="100%" aria-label="Unfinished bridge: suspension arch and cables over funded teal section, rebar at junction, hollow dashed gap section with educator figures, path forward pill at right" font-family="'Montserrat',Arial,sans-serif">
+      <svg viewBox="0 0 620 228" width="100%" aria-label="Funding gap chart: families cover up to $22k per child, a community investment of $8.5k would relieve most of the remaining $13k educator burden, for a total true cost of $35k" font-family="'Montserrat',Arial,sans-serif">
 
-        <!-- ═══════════════════════════════════════
-             BRIDGE TOWERS (teal)
-        ═══════════════════════════════════════ -->
+        <!-- ── CONTEXT LABEL ── -->
+        <text x="310" y="15" text-anchor="middle" font-size="9" font-weight="700" letter-spacing="1.4" fill="#8e8e93">ESTIMATED TRUE COST OF QUALITY CARE PER CHILD / YEAR · $25K – $35K</text>
 
-        <!-- Left tower shaft + cap -->
-        <rect x="28" y="40" width="14" height="88" rx="2" fill="#148ec1"/>
-        <rect x="22" y="34" width="26" height="10" rx="3" fill="#148ec1"/>
+        <!-- ── MAIN BAR: y=24–76 (h=52) ── -->
+        <!-- Track background -->
+        <rect x="30" y="24" width="560" height="52" rx="7" fill="#ebebeb"/>
 
-        <!-- Junction tower shaft + cap (right end of funded section) -->
-        <rect x="322" y="40" width="14" height="88" rx="2" fill="#148ec1"/>
-        <rect x="316" y="34" width="26" height="10" rx="3" fill="#148ec1"/>
+        <!-- SECTION 1 — Families $22k, 352px, teal solid -->
+        <rect x="30" y="24" width="352" height="52" rx="7 0 0 7" fill="#148ec1"/>
+        <text x="206" y="45" text-anchor="middle" font-size="13" font-weight="800" fill="white">Families Pay</text>
+        <text x="206" y="62" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.88)">$15,000 – $22,000 / year</text>
 
-        <!-- ═══════════════════════════════════════
-             MAIN ARCH (solid teal, funded section)
-        ═══════════════════════════════════════ -->
-        <path d="M 35,40 Q 182,6 329,40" fill="none" stroke="#148ec1" stroke-width="5" stroke-linecap="round"/>
+        <!-- SECTION 2 — $8.5k investment, 136px, orange dashed -->
+        <rect x="382" y="24" width="136" height="52" fill="rgba(247,143,32,0.14)" stroke="#f78f20" stroke-width="2" stroke-dasharray="8,5"/>
+        <text x="450" y="45" text-anchor="middle" font-size="12.5" font-weight="800" fill="#c46b00">$8.5k</text>
+        <text x="450" y="62" text-anchor="middle" font-size="9.5" fill="#c46b00">Community Investment</text>
 
-        <!-- GHOST ARCH (dashed teal, showing where completion would go)
-             Mirrors main arch from junction tower to ghost right tower.
-             x=329→582, peak at ~y=8 -->
-        <path d="M 329,40 Q 455,8 582,40" fill="none" stroke="#148ec1" stroke-width="3.5" stroke-dasharray="10,6" stroke-linecap="round" opacity="0.38"/>
+        <!-- SECTION 3 — Remaining gap $4.5k, 72px, red light -->
+        <rect x="518" y="24" width="72" height="52" rx="0 7 7 0" fill="rgba(228,29,27,0.08)" stroke="#e41d1b" stroke-width="2" stroke-dasharray="6,4"/>
+        <text x="554" y="45" text-anchor="middle" font-size="10" font-weight="800" fill="#e41d1b">$4.5k</text>
+        <text x="554" y="62" text-anchor="middle" font-size="9" fill="#e41d1b">Still a gap</text>
 
-        <!-- ═══════════════════════════════════════
-             GHOST RIGHT TOWER (dashed teal) at x=576
-        ═══════════════════════════════════════ -->
-        <rect x="575" y="40" width="12" height="88" rx="2" fill="none" stroke="#148ec1" stroke-width="2" stroke-dasharray="5,3" opacity="0.4"/>
-        <rect x="569" y="34" width="24" height="10" rx="3" fill="none" stroke="#148ec1" stroke-width="2" stroke-dasharray="4,3" opacity="0.4"/>
+        <!-- Section dividers (subtle white lines) -->
+        <line x1="382" y1="24" x2="382" y2="76" stroke="rgba(255,255,255,0.65)" stroke-width="2"/>
+        <line x1="518" y1="24" x2="518" y2="76" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
 
-        <!-- ═══════════════════════════════════════
-             SOLID SUSPENSION CABLES (funded section)
-        ═══════════════════════════════════════ -->
-        <line x1="94"  y1="30" x2="94"  y2="95" stroke="#148ec1" stroke-width="1.5" opacity="0.65"/>
-        <line x1="138" y1="23" x2="138" y2="95" stroke="#148ec1" stroke-width="1.5" opacity="0.65"/>
-        <line x1="182" y1="22" x2="182" y2="95" stroke="#148ec1" stroke-width="1.5" opacity="0.65"/>
-        <line x1="226" y1="23" x2="226" y2="95" stroke="#148ec1" stroke-width="1.5" opacity="0.65"/>
-        <line x1="270" y1="30" x2="270" y2="95" stroke="#148ec1" stroke-width="1.5" opacity="0.65"/>
+        <!-- ── DOLLAR SCALE ── -->
+        <line x1="30"  y1="76" x2="30"  y2="82" stroke="#c7c7cc" stroke-width="1"/>
+        <line x1="190" y1="76" x2="190" y2="82" stroke="#c7c7cc" stroke-width="1"/>
+        <line x1="350" y1="76" x2="350" y2="82" stroke="#c7c7cc" stroke-width="1"/>
+        <line x1="510" y1="76" x2="510" y2="82" stroke="#c7c7cc" stroke-width="1"/>
+        <line x1="590" y1="76" x2="590" y2="82" stroke="#c7c7cc" stroke-width="1"/>
 
-        <!-- GHOST CABLES over gap + completion zone (dashed teal)
-             t values from ghost arch M329 Q455 582:
-               t=0.20 → x=373, y=31   t=0.40 → x=415, y=20
-               t=0.60 → x=456, y=20   t=0.80 → x=498, y=31 -->
-        <line x1="373" y1="31" x2="373" y2="95" stroke="#148ec1" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.35"/>
-        <line x1="415" y1="20" x2="415" y2="95" stroke="#148ec1" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.35"/>
-        <line x1="456" y1="20" x2="456" y2="95" stroke="#148ec1" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.35"/>
-        <line x1="498" y1="31" x2="498" y2="95" stroke="#148ec1" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.35"/>
-        <line x1="540" y1="38" x2="540" y2="95" stroke="#148ec1" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.35"/>
+        <text x="30"  y="92" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$0</text>
+        <text x="190" y="92" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$10k</text>
+        <text x="350" y="92" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$20k</text>
+        <text x="510" y="92" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$30k</text>
+        <text x="590" y="92" text-anchor="middle" font-size="9.5" font-weight="700" fill="#148ec1">$35k</text>
 
-        <!-- ═══════════════════════════════════════
-             GAP CALLOUT — centered in gap x=336–494, clear of tower
-             Three shorter lines so nothing clips the right tower
-        ═══════════════════════════════════════ -->
-        <text x="445" y="44" text-anchor="middle" font-size="12" font-weight="800" fill="#e41d1b">Educators bridge</text>
-        <text x="445" y="59" text-anchor="middle" font-size="12" font-weight="800" fill="#e41d1b">the $13k gap</text>
-        <text x="445" y="73" text-anchor="middle" font-size="10" fill="#e41d1b">with their own wages</text>
-        <!-- Arrow down to gap section top -->
-        <line x1="415" y1="78" x2="415" y2="90" stroke="#e41d1b" stroke-width="1.5" stroke-dasharray="3,2"/>
-        <polygon points="411,90 415,97 419,90" fill="#e41d1b"/>
+        <!-- ── EDUCATOR BURDEN BRACKET ── -->
+        <!-- Spans both gap sections: x=382 to x=590 = $13k educator burden today -->
+        <line x1="382" y1="106" x2="590" y2="106" stroke="#e41d1b" stroke-width="1.5"/>
+        <line x1="382" y1="100" x2="382" y2="106" stroke="#e41d1b" stroke-width="1.5"/>
+        <line x1="590" y1="100" x2="590" y2="106" stroke="#e41d1b" stroke-width="1.5"/>
+        <!-- Center down-tick -->
+        <line x1="486" y1="106" x2="486" y2="112" stroke="#e41d1b" stroke-width="1.5"/>
+        <text x="486" y="125" text-anchor="middle" font-size="10.5" font-weight="800" fill="#e41d1b">Educators absorb this $13k gap today</text>
+        <text x="486" y="139" text-anchor="middle" font-size="9" fill="#8e8e93">At lower family incomes, the gap can reach $20k</text>
 
-        <!-- ═══════════════════════════════════════
-             ROAD DECK
-        ═══════════════════════════════════════ -->
+        <!-- ── INVESTMENT CALLOUT (arrow up to section 2) ── -->
+        <line x1="450" y1="153" x2="450" y2="144" stroke="#f78f20" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <polygon points="446,144 450,136 454,144" fill="#f78f20"/>
+        <text x="450" y="165" text-anchor="middle" font-size="9.5" font-weight="700" fill="#c46b00">↑ Investment covers 65% of the gap</text>
+        <text x="450" y="178" text-anchor="middle" font-size="9" fill="#8e8e93">reducing educator burden from $13k → $4.5k</text>
 
-        <!-- Full-width track background -->
-        <rect x="42" y="95" width="540" height="33" rx="5" fill="#f0f0f0" stroke="#d1d1d6" stroke-width="1"/>
-
-        <!-- TEAL funded section (x=42→322, w=280) — labels inside -->
-        <rect x="42" y="95" width="280" height="33" rx="5 0 0 5" fill="#148ec1"/>
-        <text x="182" y="109" text-anchor="middle" font-size="12.5" font-weight="800" fill="white">Families are maxed out</text>
-        <text x="182" y="122" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.88)">$15–22k / year · 30% of income</text>
-
-        <!-- REBAR — sticking right out of junction tower (x=336), construction stopped here -->
-        <line x1="336" y1="98"  x2="352" y2="88"  stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="336" y1="107" x2="352" y2="97"  stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="336" y1="116" x2="352" y2="106" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="336" y1="125" x2="352" y2="117" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
-
-        <!-- GAP SECTION — hollow skeleton, x=336→494 -->
-        <rect x="336" y="95" width="158" height="33" fill="rgba(228,29,27,0.05)" stroke="#e41d1b" stroke-width="2" stroke-dasharray="8,4"/>
-        <clipPath id="clipHBridge"><rect x="336" y="95" width="158" height="33"/></clipPath>
-        <g clip-path="url(#clipHBridge)">
-          <line x1="316" y1="128" x2="494" y2="95"  stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
-          <line x1="342" y1="128" x2="494" y2="102" stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
-          <line x1="368" y1="128" x2="494" y2="113" stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
-          <line x1="394" y1="128" x2="494" y2="128" stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
-          <line x1="336" y1="115" x2="490" y2="95"  stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
-          <line x1="336" y1="104" x2="478" y2="95"  stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
-          <line x1="420" y1="128" x2="494" y2="95"  stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
-          <line x1="458" y1="128" x2="494" y2="103" stroke="rgba(228,29,27,0.10)" stroke-width="2"/>
-        </g>
-
-        <!-- GHOST ROAD — teal dashed outline showing where road WOULD be (x=494→582) -->
-        <rect x="494" y="95" width="88" height="33" rx="0 5 5 0" fill="rgba(20,142,193,0.07)" stroke="#148ec1" stroke-width="2" stroke-dasharray="7,4" opacity="0.55"/>
-        <!-- Ghost road center-line dashes -->
-        <line x1="504" y1="111" x2="518" y2="111" stroke="rgba(20,142,193,0.3)" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="527" y1="111" x2="541" y2="111" stroke="rgba(20,142,193,0.3)" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="550" y1="111" x2="564" y2="111" stroke="rgba(20,142,193,0.3)" stroke-width="2.5" stroke-linecap="round"/>
-
-        <!-- Junction crack line (white, at start of gap x=336) -->
-        <line x1="336" y1="95" x2="336" y2="128" stroke="white" stroke-width="2.5" stroke-dasharray="4,3" opacity="0.8"/>
-
-        <!-- $30k marker line only — label lives in scale row below -->
-        <line x1="494" y1="95" x2="494" y2="128" stroke="#148ec1" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
-
-        <!-- ═══════════════════════════════════════
-             DOLLAR SCALE (below deck)
-        ═══════════════════════════════════════ -->
-        <text x="42"  y="140" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$0</text>
-        <text x="196" y="140" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$10k</text>
-        <text x="350" y="140" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$20k</text>
-        <text x="494" y="140" text-anchor="middle" font-size="9.5" fill="#c7c7cc">$30k</text>
-        <text x="582" y="140" text-anchor="middle" font-size="9.5" font-weight="700" fill="#148ec1">$35k</text>
-
-        <!-- ═══════════════════════════════════════
-             PATH FORWARD PILL
-             x=502–617, y=148–190 — right of educators, below scale
-        ═══════════════════════════════════════ -->
-        <rect x="502" y="148" width="115" height="42" rx="10" fill="rgba(20,142,193,0.12)" stroke="#148ec1" stroke-width="1.5"/>
-        <text x="560" y="165" text-anchor="middle" font-size="10" font-weight="700" fill="#148ec1">→ Closing this gap</text>
-        <text x="560" y="181" text-anchor="middle" font-size="10" font-weight="700" fill="#148ec1">is the Path Forward</text>
-
-        <!-- ═══════════════════════════════════════
-             FIGURES — all y coords +18 vs. old (deck now y=95–128 vs. old y=68–110)
-             Arms reach to y=128 (track underside)
-        ═══════════════════════════════════════ -->
-
-        <!-- DAD (cx=143) -->
-        <circle cx="143" cy="165" r="12" fill="#148ec1"/>
-        <path d="M 135,179 L 135,212 L 151,212 L 151,179 Q 147,182 143,182 Q 139,182 135,179 Z" fill="#148ec1"/>
-        <path d="M 135,186 Q 127,157 122,128" stroke="#148ec1" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <path d="M 151,186 Q 156,200 162,205 Q 167,205 174,202" stroke="#148ec1" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <line x1="139" y1="212" x2="133" y2="236" stroke="#148ec1" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="147" y1="212" x2="153" y2="236" stroke="#148ec1" stroke-width="2.5" stroke-linecap="round"/>
-
-        <!-- BABY -->
-        <ellipse cx="169" cy="190" rx="6" ry="9" fill="#148ec1"/>
-        <circle cx="169" cy="179" r="6" fill="#148ec1"/>
-
-        <!-- MOM (cx=197) -->
-        <circle cx="197" cy="151" r="7" fill="#148ec1"/>
-        <circle cx="197" cy="165" r="12" fill="#148ec1"/>
-        <path d="M 189,179 L 177,215 L 217,215 L 205,179 Q 201,182 197,182 Q 193,182 189,179 Z" fill="#148ec1"/>
-        <path d="M 192,179 L 197,188 L 202,179" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
-        <path d="M 189,184 Q 182,163 178,128" stroke="#148ec1" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <path d="M 205,184 Q 212,163 216,128" stroke="#148ec1" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <line x1="185" y1="215" x2="180" y2="238" stroke="#148ec1" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="209" y1="215" x2="214" y2="238" stroke="#148ec1" stroke-width="2.5" stroke-linecap="round"/>
-
-        <!-- MALE EDUCATOR (cx=393) -->
-        <circle cx="393" cy="165" r="12" fill="#e41d1b"/>
-        <path d="M 385,179 L 385,212 L 401,212 L 401,179 Q 397,182 393,182 Q 389,182 385,179 Z" fill="#e41d1b"/>
-        <path d="M 385,186 Q 377,164 372,128" stroke="#e41d1b" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <path d="M 401,186 Q 409,164 414,128" stroke="#e41d1b" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <line x1="389" y1="212" x2="383" y2="236" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="397" y1="212" x2="403" y2="236" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
-
-        <!-- FEMALE EDUCATOR (cx=423) -->
-        <circle cx="423" cy="151" r="7" fill="#e41d1b"/>
-        <circle cx="423" cy="165" r="12" fill="#e41d1b"/>
-        <circle cx="417" cy="167" r="4.5" fill="rgba(160,0,0,0.22)" stroke="white" stroke-width="1.4"/>
-        <circle cx="429" cy="167" r="4.5" fill="rgba(160,0,0,0.22)" stroke="white" stroke-width="1.4"/>
-        <line x1="421.5" y1="167" x2="424.5" y2="167" stroke="white" stroke-width="1.4"/>
-        <line x1="412.5" y1="167" x2="408"   y2="167" stroke="white" stroke-width="1.2"/>
-        <line x1="433.5" y1="167" x2="438"   y2="167" stroke="white" stroke-width="1.2"/>
-        <path d="M 415,179 L 403,215 L 443,215 L 431,179 Q 427,182 423,182 Q 419,182 415,179 Z" fill="#e41d1b"/>
-        <path d="M 418,179 L 423,188 L 428,179" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
-        <path d="M 415,184 Q 408,163 404,128" stroke="#e41d1b" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <path d="M 431,184 Q 438,163 442,128" stroke="#e41d1b" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <line x1="411" y1="215" x2="406" y2="238" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="435" y1="215" x2="440" y2="238" stroke="#e41d1b" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- ── INSIGHT BOX ── -->
+        <rect x="30" y="192" width="560" height="30" rx="7" fill="rgba(20,142,193,0.07)" stroke="#148ec1" stroke-width="1.5"/>
+        <text x="310" y="208" text-anchor="middle" font-size="10.5" font-weight="700" fill="#148ec1">Without public investment, educators bridge the gap with their own wages.</text>
+        <text x="310" y="220" text-anchor="middle" font-size="10" fill="#3a3a3c">The $8.5k ask would fund 65% of that deficit and move toward a sustainable system.</text>
 
       </svg>
       <p class="source-note">Sources: <sup>1</sup> Strategic Investment Plan (2026) &nbsp; <sup>2</sup> Brodsky Report (2025)</p>
